@@ -10,10 +10,12 @@ import WebKit
 
 struct DescriptionHTMLView: View {
     let text: String
+    let height: CGFloat
     
     var body: some View {
         WebView(text: text)
-            .frame(minWidth: 50, maxWidth: .infinity, minHeight: 0,idealHeight: 150, maxHeight: .infinity)
+            .frame(minWidth: 50, maxWidth: .infinity, minHeight: 0,idealHeight: height, maxHeight: .infinity)
+        //    .font(Font: largeTitle)
     }
 }
 

@@ -7,7 +7,10 @@
 
 import Foundation
 
-struct ActivityModel: Codable {
+struct ActivityModel: Codable, Identifiable {
+    var id: UUID {
+        return UUID()
+    }
     let ActivityName: String
     let FacilityActivityDescription: String
 }

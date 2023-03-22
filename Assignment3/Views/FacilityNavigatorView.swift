@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct FacilityNavigatorView: View {
+    
+    let state: String
+    
     @ObservedObject var facilityvm = RecreationViewModel()
+    
     
     var body: some View {
         NavigationStack {
@@ -23,14 +27,14 @@ struct FacilityNavigatorView: View {
               }
             }
             .onAppear{
-                facilityvm.fetchData()
+                facilityvm.fetchData(state: state)
             }
         }
     }
 }
 
-struct FacilityNavigator_Previews: PreviewProvider {
-    static var previews: some View {
-        FacilityNavigatorView()
-    }
-}
+//struct FacilityNavigator_Previews: PreviewProvider {
+//    static var previews: some View {
+//        FacilityNavigatorView()
+//    }
+//}

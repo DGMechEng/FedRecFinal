@@ -10,10 +10,13 @@ import Foundation
 class RecreationViewModel : ObservableObject {
     
     @Published private(set) var facilityData = [FacilityModel]()
+//    private let url1 = "https://ridb.recreation.gov/api/v1/organizations/131/facilities?limit=2&offset=0&full=true&state="
+//    private let url2 = "&activity=5&lastupdated=10-01-2018&apikey=570908ba-8eed-43ed-93bd-c7778f1e7a06"
+    private var url: String = ""
     
-    private let url = "https://ridb.recreation.gov/api/v1/organizations/131/facilities?limit=20&offset=0&full=true&state=CO&activity=5&lastupdated=10-01-2018&apikey=570908ba-8eed-43ed-93bd-c7778f1e7a06"
-    
-    func fetchData() {
+    func fetchData(state: String) {
+        url = "https://ridb.recreation.gov/api/v1/organizations/131/facilities?limit=2&offset=0&full=true&state=\(state)&activity=5&lastupdated=10-01-2018&apikey=570908ba-8eed-43ed-93bd-c7778f1e7a06"
+        
         if let url = URL(string: self.url) {
             URLSession
                 .shared

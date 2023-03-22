@@ -12,11 +12,18 @@ struct UserInputView: View {
     // let orgID = "131" //131 is FS, 139 is BLM
     // @ObservedObject var facilityvm = RecreationViewModel()
      
+    @State private(set) var userValue: String = ""
     
      var body: some View {
          VStack {
-             Text("User Input Page")
-             FacilityNavigatorView()
+             Text("Public Lands Facility Finder")
+             HStack {
+                 Text("Enter State Abbreviation:")
+                 TextField("", text: $userValue)
+                     .textFieldStyle(.roundedBorder)
+                     .keyboardType(.alphabet)
+             }
+             FacilityNavigatorView(state: userValue)
          }
 
      }
