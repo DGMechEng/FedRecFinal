@@ -13,7 +13,7 @@ struct LinkView: View {
     
     var body: some View {
         ForEach(links) {link in
-            Link("Facility Link", destination: URL(string: link.URL)!)
+            Link(link.Title, destination: URL(string: link.URL)!)
         }
     }
     

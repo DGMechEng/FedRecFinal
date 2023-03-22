@@ -13,4 +13,5 @@ struct LinkModel: Codable, Identifiable {
     }
    // let id = UUID()
     let URL: String
+    let Title: String
 }
