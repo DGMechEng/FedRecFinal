@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct FacilityNavigator: View {
+struct FacilityNavigatorView: View {
     @ObservedObject var facilityvm = RecreationViewModel()
     
     var body: some View {
         NavigationStack {
             List {
-             //   Text("in list")
+                
                 ForEach(facilityvm.facilityData) {facility in
                     NavigationLink {
                         FacilityView(facility: facility)
@@ -22,12 +22,15 @@ struct FacilityNavigator: View {
                     }
               }
             }
+            .onAppear{
+                facilityvm.fetchData()
+            }
         }
     }
 }
 
 struct FacilityNavigator_Previews: PreviewProvider {
     static var previews: some View {
-        FacilityNavigator()
+        FacilityNavigatorView()
     }
 }

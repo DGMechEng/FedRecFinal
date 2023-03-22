@@ -7,6 +7,10 @@
 
 import Foundation
 
-struct LinkModel: Codable {
+struct LinkModel: Codable, Identifiable {
+    var id: UUID {
+        return UUID()
+    }
+   // let id = UUID()
     let URL: String
 }

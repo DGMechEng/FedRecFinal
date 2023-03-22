@@ -11,7 +11,7 @@ import SwiftUI
 struct FedRecreationApp: App {
     var body: some Scene {
         WindowGroup {
-            UserInput()
+            UserInputView()
         }
     }
 }
