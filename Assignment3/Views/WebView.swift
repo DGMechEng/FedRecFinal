@@ -8,7 +8,16 @@
 import SwiftUI
 import WebKit
 
-struct DescriptionHTMLView: UIViewRepresentable {
+struct DescriptionHTMLView: View {
+    let text: String
+    
+    var body: some View {
+        WebView(text: text)
+            .frame(minWidth: 50, maxWidth: .infinity, minHeight: 0,idealHeight: 150, maxHeight: .infinity)
+    }
+}
+
+struct WebView: UIViewRepresentable {
     let text: String
   
     func makeUIView(context: Context) -> WKWebView {
@@ -20,6 +29,7 @@ struct DescriptionHTMLView: UIViewRepresentable {
     }
     
 }
+
 
 //struct DescriptionHTMLView_Previews: PreviewProvider {
 //    static var previews: some View {
