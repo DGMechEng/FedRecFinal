@@ -13,7 +13,8 @@ struct DescriptionHTMLView: View {
     let height: CGFloat
     
     var body: some View {
-        WebView(text: text)
+        TestHTMLText(html:text)
+        //WebView(text: text)
             .frame(minWidth: 50, maxWidth: .infinity, minHeight: 0,idealHeight: height, maxHeight: .infinity)
         //    .font(Font: largeTitle)
     }
@@ -21,17 +22,34 @@ struct DescriptionHTMLView: View {
 
 struct WebView: UIViewRepresentable {
     let text: String
-  
+
     func makeUIView(context: Context) -> WKWebView {
         return WKWebView()
     }
-    
+
     func updateUIView(_ uiView: WKWebView, context: Context) {
         uiView.loadHTMLString(text, baseURL: nil)
     }
-    
+
 }
 
+@available(iOS 15, *)
+struct TestHTMLText: View {
+    let html: String
+    var body: some View {
+        
+       // let html = "<h1>Heading</h1> <p>paragraph.</p>"
+
+        if let nsAttributedString = try? NSAttributedString(data: Data(html.utf8), options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil),
+           let attributedString = try? AttributedString(nsAttributedString, including: \.uiKit) {
+            Text(attributedString)
+                .font(.title3)
+        } else {
+            // fallback...
+            Text(html)
+        }
+    }
+}
 
 //struct DescriptionHTMLView_Previews: PreviewProvider {
 //    static var previews: some View {

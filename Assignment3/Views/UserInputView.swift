@@ -14,6 +14,7 @@ struct UserInputView: View {
     // @ObservedObject var facilityvm = RecreationViewModel()
      
     @State private(set) var userValue: String = "CO"
+    @State private var showDetails = false
     
      var body: some View {
       
@@ -25,8 +26,14 @@ struct UserInputView: View {
                          .textFieldStyle(.roundedBorder)
                          .keyboardType(.alphabet)
                  }
-
-                 FacilityNavigatorView(state: userValue)
+                 Button("Find Facilities") {
+                     showDetails.toggle()
+                 }
+                 
+                 if showDetails {
+                     //showDetails.toggle()
+                     FacilityNavigatorView(state: userValue)
+                 }
              }
          
      }
