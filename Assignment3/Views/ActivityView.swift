@@ -12,11 +12,14 @@ struct ActivityView: View {
     var activities: [ActivityModel]
     
     var body: some View {
-        ForEach(activities) { activity in
-            Text(activity.ActivityName)
-            DescriptionHTMLView(text: activity.FacilityActivityDescription, height: 30)
+        VStack {
+            ForEach(activities) { activity in
+                Text(activity.ActivityName)
+                    .font(.system(size: 15))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                DescriptionHTMLView(text: activity.FacilityActivityDescription, height: 10)
+            }
         }
-        
     }
 }
 

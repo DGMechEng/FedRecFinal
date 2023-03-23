@@ -6,26 +6,29 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct UserInputView: View {
     // let userState=["CO","WY"]
     // let orgID = "131" //131 is FS, 139 is BLM
     // @ObservedObject var facilityvm = RecreationViewModel()
      
-    @State private(set) var userValue: String = ""
+    @State private(set) var userValue: String = "CO"
     
      var body: some View {
-         VStack {
-             Text("Public Lands Facility Finder")
-             HStack {
-                 Text("Enter State Abbreviation:")
-                 TextField("", text: $userValue)
-                     .textFieldStyle(.roundedBorder)
-                     .keyboardType(.alphabet)
-             }
-             FacilityNavigatorView(state: userValue)
-         }
+      
+             VStack {
+                 Text("Public Lands Facility Finder")
+                 HStack {
+                     Text("Enter State Abbreviation:")
+                     TextField("", text: $userValue)
+                         .textFieldStyle(.roundedBorder)
+                         .keyboardType(.alphabet)
+                 }
 
+                 FacilityNavigatorView(state: userValue)
+             }
+         
      }
 }
 

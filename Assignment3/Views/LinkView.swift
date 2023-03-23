@@ -12,8 +12,13 @@ struct LinkView: View {
     var links : [LinkModel]
     
     var body: some View {
-        ForEach(links) {link in
-            Link(link.Title, destination: URL(string: link.URL)!)
+        HStack {
+            Image(systemName: "link")
+            ForEach(links) {link in
+                Link(link.Title, destination: URL(string: link.URL)!)
+                    .font(.system(size: 15))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            }
         }
     }
     
