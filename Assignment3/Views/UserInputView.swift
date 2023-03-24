@@ -11,49 +11,47 @@ import UIKit
 struct UserInputView: View {
     // let userState=["CO","WY"]
     // let orgID = "131" //131 is FS, 139 is BLM
-    // @ObservedObject var facilityvm = RecreationViewModel()
-     
+    @ObservedObject var facilityvm = RecreationViewModel()
+    
     @State private(set) var userValue="CO"
-  
+    
     @State private var showDetails = false
     
     var States = ["CO", "WY", "UT", "NM"]
     
-//    enum Orgs: String, CaseIterable, Identifiable {
-//        case forest_service
-//        case blm //131 is forest service, 139 is BLM
-//        var id: Self {self}
-//    }
+    //    enum Orgs: String, CaseIterable, Identifiable {
+    //        case forest_service
+    //        case blm //131 is forest service, 139 is BLM
+    //        var id: Self {self}
+    //    }
     
     var body: some View {
-        VStack {
-            NavigationView {
-                List {
-                    Picker("Select a state: ", selection: $userValue) {
-                        ForEach(States, id: \.self) {
-                            Text($0)
-                        }
-                    }
-                   Button("Find Facilities") {
-                       showDetails.toggle()
+        NavigationStack {
+            List {
+                Picker("Select a state: ", selection: $userValue) {
+                    ForEach(States, id: \.self) {
+                        Text($0)
                     }
                 }
-                .frame(minWidth: 0, minHeight: 0, idealHeight: 100, maxHeight: 150)
-                .navigationTitle("Public Lands Facility Finder")
+                .onChange(of: userValue) { _ in
+                    facilityvm.fetchData(state: userValue)
+                }
+                Section {
+                    ForEach(facilityvm.facilityData) { facility in
+                        NavigationLink(destination: {
+                            FacilityView(facility: facility)
+                        }, label: {
+                            Text(facility.FacilityName)
+                        })
+                    }
+                }
             }
-     
-            if showDetails {
-                //showDetails.toggle()
-                FacilityNavigatorView(state: userValue)
+            .onAppear {
+                facilityvm.fetchData(state: userValue)
             }
-                            
+            .navigationTitle("Public Lands Facility Finder")
+            .navigationBarTitleDisplayMode(.inline)
         }
-         
-     }
+    }
+    
 }
-
-//struct UserInput_Previews: PreviewProvider {
-//    static var previews: some View {
-//        UserInputView()
-//    }
-//}

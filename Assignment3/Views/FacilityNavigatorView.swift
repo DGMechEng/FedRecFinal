@@ -33,8 +33,3 @@ struct FacilityNavigatorView: View {
     }
 }
 
-//struct FacilityNavigator_Previews: PreviewProvider {
-//    static var previews: some View {
-//        FacilityNavigatorView()
-//    }
-//}

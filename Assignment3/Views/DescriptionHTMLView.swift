@@ -51,8 +51,3 @@ struct TestHTMLText: View {
     }
 }
 
-//struct DescriptionHTMLView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        DescriptionHTMLView()
-//    }
-//}
