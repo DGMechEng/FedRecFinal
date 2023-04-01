@@ -14,7 +14,7 @@ struct MapView: View {
     var coordinate : CLLocationCoordinate2D
     
     var body: some View {
-        Map(coordinateRegion: .constant(MKCoordinateRegion(center: coordinate, latitudinalMeters: 750, longitudinalMeters: 750)))
+        Map(coordinateRegion: .constant(MKCoordinateRegion(center: coordinate, latitudinalMeters: 750, longitudinalMeters: 750)),interactionModes: .all)
     }
 }
 
