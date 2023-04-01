@@ -196,7 +196,7 @@
 					};
 				};
 			};
-			buildConfigurationList = ACF5E03729BE957F00DD981A /* Build configuration list for PBXProject "FedRecApp_M4" */;
+			buildConfigurationList = ACF5E03729BE957F00DD981A /* Build configuration list for PBXProject "FedRecApp_Final" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -432,7 +432,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		ACF5E03729BE957F00DD981A /* Build configuration list for PBXProject "FedRecApp_M4" */ = {
+		ACF5E03729BE957F00DD981A /* Build configuration list for PBXProject "FedRecApp_Final" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ACF5E04829BE958000DD981A /* Debug */,
