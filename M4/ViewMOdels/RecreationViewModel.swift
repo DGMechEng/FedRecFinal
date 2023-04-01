@@ -30,6 +30,7 @@ class RecreationViewModel : ObservableObject {
                                 DispatchQueue.main.async {
                                     self.facilityData = results.RECDATA
                                 }
+                                //maybe this is where I should determine which locations are closest?
                             } catch {
                                 print(error)
                             }
