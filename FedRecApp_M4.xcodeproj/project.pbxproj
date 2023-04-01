@@ -10,6 +10,16 @@
 		ACF5E04029BE957F00DD981A /* FedRecreationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF5E03F29BE957F00DD981A /* FedRecreationApp.swift */; };
 		ACF5E04429BE958000DD981A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACF5E04329BE958000DD981A /* Assets.xcassets */; };
 		ACF5E04729BE958000DD981A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACF5E04629BE958000DD981A /* Preview Assets.xcassets */; };
+		B3386E3D29D887B600F841E8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B3386E3C29D887B600F841E8 /* GoogleService-Info.plist */; };
+		B3386E4029D8887100F841E8 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = B3386E3F29D8887100F841E8 /* FirebaseAnalytics */; };
+		B3386E4229D8887100F841E8 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B3386E4129D8887100F841E8 /* FirebaseAnalyticsSwift */; };
+		B3386E4429D8887100F841E8 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B3386E4329D8887100F841E8 /* FirebaseAuth */; };
+		B3386E4729D888F100F841E8 /* AuthenticatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3386E4629D888F100F841E8 /* AuthenticatedView.swift */; };
+		B3386E4929D8891200F841E8 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3386E4829D8891100F841E8 /* AuthenticationView.swift */; };
+		B3386E4B29D8893000F841E8 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3386E4A29D8893000F841E8 /* UserProfileView.swift */; };
+		B3386E4D29D8894E00F841E8 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3386E4C29D8894E00F841E8 /* SignupView.swift */; };
+		B3386E4F29D8896900F841E8 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3386E4E29D8896900F841E8 /* LoginView.swift */; };
+		B3386E5129D88A0900F841E8 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3386E5029D88A0900F841E8 /* AuthenticationViewModel.swift */; };
 		B39E7DE029CA9227000B4B74 /* UserInputModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E7DDF29CA9227000B4B74 /* UserInputModel.swift */; };
 		B39E7DE229CA993B000B4B74 /* LinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E7DE129CA993B000B4B74 /* LinkView.swift */; };
 		B39E7DE429CA9EEA000B4B74 /* DescriptionHTMLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E7DE329CA9EEA000B4B74 /* DescriptionHTMLView.swift */; };
@@ -24,10 +34,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		ACF5E03C29BE957F00DD981A /* Assignment3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assignment3.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACF5E03C29BE957F00DD981A /* FedRecApp_M4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FedRecApp_M4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACF5E03F29BE957F00DD981A /* FedRecreationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FedRecreationApp.swift; sourceTree = "<group>"; };
 		ACF5E04329BE958000DD981A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACF5E04629BE958000DD981A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B3386E3C29D887B600F841E8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B3386E4629D888F100F841E8 /* AuthenticatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedView.swift; sourceTree = "<group>"; };
+		B3386E4829D8891100F841E8 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
+		B3386E4A29D8893000F841E8 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
+		B3386E4C29D8894E00F841E8 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
+		B3386E4E29D8896900F841E8 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		B3386E5029D88A0900F841E8 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		B39E7DDF29CA9227000B4B74 /* UserInputModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInputModel.swift; sourceTree = "<group>"; };
 		B39E7DE129CA993B000B4B74 /* LinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkView.swift; sourceTree = "<group>"; };
 		B39E7DE329CA9EEA000B4B74 /* DescriptionHTMLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionHTMLView.swift; sourceTree = "<group>"; };
@@ -46,6 +63,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3386E4229D8887100F841E8 /* FirebaseAnalyticsSwift in Frameworks */,
+				B3386E4429D8887100F841E8 /* FirebaseAuth in Frameworks */,
+				B3386E4029D8887100F841E8 /* FirebaseAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,7 +75,7 @@
 		ACF5E03329BE957F00DD981A = {
 			isa = PBXGroup;
 			children = (
-				ACF5E03E29BE957F00DD981A /* Assignment3 */,
+				ACF5E03E29BE957F00DD981A /* M4 */,
 				ACF5E03D29BE957F00DD981A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -63,21 +83,23 @@
 		ACF5E03D29BE957F00DD981A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				ACF5E03C29BE957F00DD981A /* Assignment3.app */,
+				ACF5E03C29BE957F00DD981A /* FedRecApp_M4.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		ACF5E03E29BE957F00DD981A /* Assignment3 */ = {
+		ACF5E03E29BE957F00DD981A /* M4 */ = {
 			isa = PBXGroup;
 			children = (
+				B3386E4529D888D200F841E8 /* Auth */,
 				B3EB00A229C9431E00D0D00A /* Views */,
 				B3EB00AB29C9436400D0D00A /* Models */,
 				ACF5E04329BE958000DD981A /* Assets.xcassets */,
+				B3386E3C29D887B600F841E8 /* GoogleService-Info.plist */,
 				ACF5E04529BE958000DD981A /* Preview Content */,
 				B3EB00B529C943BE00D0D00A /* ViewMOdels */,
 			);
-			path = Assignment3;
+			path = M4;
 			sourceTree = "<group>";
 		};
 		ACF5E04529BE958000DD981A /* Preview Content */ = {
@@ -86,6 +108,18 @@
 				ACF5E04629BE958000DD981A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B3386E4529D888D200F841E8 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				B3386E4629D888F100F841E8 /* AuthenticatedView.swift */,
+				B3386E4829D8891100F841E8 /* AuthenticationView.swift */,
+				B3386E4A29D8893000F841E8 /* UserProfileView.swift */,
+				B3386E4C29D8894E00F841E8 /* SignupView.swift */,
+				B3386E4E29D8896900F841E8 /* LoginView.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		B3EB00A229C9431E00D0D00A /* Views */ = {
@@ -117,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				B3EB00B329C943B400D0D00A /* RecreationViewModel.swift */,
+				B3386E5029D88A0900F841E8 /* AuthenticationViewModel.swift */,
 			);
 			path = ViewMOdels;
 			sourceTree = "<group>";
@@ -124,9 +159,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		ACF5E03B29BE957F00DD981A /* Assignment3 */ = {
+		ACF5E03B29BE957F00DD981A /* FedRecApp_M4 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ACF5E04A29BE958000DD981A /* Build configuration list for PBXNativeTarget "Assignment3" */;
+			buildConfigurationList = ACF5E04A29BE958000DD981A /* Build configuration list for PBXNativeTarget "FedRecApp_M4" */;
 			buildPhases = (
 				ACF5E03829BE957F00DD981A /* Sources */,
 				ACF5E03929BE957F00DD981A /* Frameworks */,
@@ -136,9 +171,14 @@
 			);
 			dependencies = (
 			);
-			name = Assignment3;
+			name = FedRecApp_M4;
+			packageProductDependencies = (
+				B3386E3F29D8887100F841E8 /* FirebaseAnalytics */,
+				B3386E4129D8887100F841E8 /* FirebaseAnalyticsSwift */,
+				B3386E4329D8887100F841E8 /* FirebaseAuth */,
+			);
 			productName = Assignment3;
-			productReference = ACF5E03C29BE957F00DD981A /* Assignment3.app */;
+			productReference = ACF5E03C29BE957F00DD981A /* FedRecApp_M4.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -156,7 +196,7 @@
 					};
 				};
 			};
-			buildConfigurationList = ACF5E03729BE957F00DD981A /* Build configuration list for PBXProject "Assignment3" */;
+			buildConfigurationList = ACF5E03729BE957F00DD981A /* Build configuration list for PBXProject "FedRecApp_M4" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -165,11 +205,14 @@
 				Base,
 			);
 			mainGroup = ACF5E03329BE957F00DD981A;
+			packageReferences = (
+				B3386E3E29D8887100F841E8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = ACF5E03D29BE957F00DD981A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				ACF5E03B29BE957F00DD981A /* Assignment3 */,
+				ACF5E03B29BE957F00DD981A /* FedRecApp_M4 */,
 			);
 		};
 /* End PBXProject section */
@@ -181,6 +224,7 @@
 			files = (
 				ACF5E04729BE958000DD981A /* Preview Assets.xcassets in Resources */,
 				ACF5E04429BE958000DD981A /* Assets.xcassets in Resources */,
+				B3386E3D29D887B600F841E8 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,10 +240,16 @@
 				B39E7DE629CBB0AA000B4B74 /* ActivityView.swift in Sources */,
 				B3EB00A629C9434100D0D00A /* FacilityView.swift in Sources */,
 				B3EB00A829C9434C00D0D00A /* MapView.swift in Sources */,
+				B3386E4729D888F100F841E8 /* AuthenticatedView.swift in Sources */,
+				B3386E5129D88A0900F841E8 /* AuthenticationViewModel.swift in Sources */,
 				B39E7DE429CA9EEA000B4B74 /* DescriptionHTMLView.swift in Sources */,
 				B3EB00AF29C9437C00D0D00A /* ActivityModel.swift in Sources */,
 				B39E7DE029CA9227000B4B74 /* UserInputModel.swift in Sources */,
 				B3EB00AA29C9435F00D0D00A /* LinkModel.swift in Sources */,
+				B3386E4F29D8896900F841E8 /* LoginView.swift in Sources */,
+				B3386E4B29D8893000F841E8 /* UserProfileView.swift in Sources */,
+				B3386E4929D8891200F841E8 /* AuthenticationView.swift in Sources */,
+				B3386E4D29D8894E00F841E8 /* SignupView.swift in Sources */,
 				ACF5E04029BE957F00DD981A /* FedRecreationApp.swift in Sources */,
 				B3EB00B729C9444D00D0D00A /* UserInputView.swift in Sources */,
 				B39E7DE229CA993B000B4B74 /* LinkView.swift in Sources */,
@@ -330,7 +380,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Assignment3/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"M4/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -358,7 +408,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Assignment3/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"M4/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -382,7 +432,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		ACF5E03729BE957F00DD981A /* Build configuration list for PBXProject "Assignment3" */ = {
+		ACF5E03729BE957F00DD981A /* Build configuration list for PBXProject "FedRecApp_M4" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ACF5E04829BE958000DD981A /* Debug */,
@@ -391,7 +441,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ACF5E04A29BE958000DD981A /* Build configuration list for PBXNativeTarget "Assignment3" */ = {
+		ACF5E04A29BE958000DD981A /* Build configuration list for PBXNativeTarget "FedRecApp_M4" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ACF5E04B29BE958000DD981A /* Debug */,
@@ -401,6 +451,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B3386E3E29D8887100F841E8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B3386E3F29D8887100F841E8 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B3386E3E29D8887100F841E8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		B3386E4129D8887100F841E8 /* FirebaseAnalyticsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B3386E3E29D8887100F841E8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsSwift;
+		};
+		B3386E4329D8887100F841E8 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B3386E3E29D8887100F841E8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = ACF5E03429BE957F00DD981A /* Project object */;
 }
