@@ -18,9 +18,17 @@ struct FacilityView: View {
         ScrollView {
        
             VStack(alignment: .leading, spacing: 10) {
-                    Text(facility.FacilityName)
+                HStack {Text(facility.FacilityName)
                         .font(.system(size: 25, design: .rounded))
                         .padding(.horizontal)
+                    Button(action: {}) {
+                        HStack {
+                            Text("Favorite")
+                            Image(systemName: "heart")
+                        }
+                    }
+                    //Text(facility.FacilityID)
+                }
                    DescriptionHTMLView (text: facility.FacilityDescription, height: 150)
                     .padding(.horizontal)
                     LinkView(links: facility.LINK)

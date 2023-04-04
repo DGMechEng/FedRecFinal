@@ -33,6 +33,7 @@ struct UserInputView: View {
                         Text($0)
                     }
                 }
+                
                 .onChange(of: userValue) { _ in
                     facilityvm.fetchData(state: userValue)
                 }
