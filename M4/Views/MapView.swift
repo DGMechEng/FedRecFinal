@@ -7,46 +7,32 @@
 
 import MapKit
 import SwiftUI
+import CoreLocationUI
 
-//struct MapWithUserLocation: View {
-//
-//    @StateObject private var locationManager = LocationManager()
-//
-//}
+struct MapView : View {
+    @StateObject private var mapViewModel = MapViewModel()
 
-struct MapView: View {
-    @StateObject private var locationManager = LocationManager()
-    
-    var coordinate : CLLocationCoordinate2D
-    
-    var region: Binding<MKCoordinateRegion>? {
-        guard let location = locationManager.location else {
-            return MKCoordinateRegion.goldenGateRegion().getBinding()
-        }
-        
-        let region = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 500, longitudinalMeters: 500)
-        
-        return region.getBinding()
-    }
-    
     var body: some View {
-        
-        if let region = region {
-            Map(coordinateRegion: region, interactionModes: .all, showsUserLocation: true, userTrackingMode: .constant(.follow))
+        ZStack(alignment: .bottom) {
+            Map(coordinateRegion: $mapViewModel.region, showsUserLocation: true)
                 .ignoresSafeArea()
+                .tint(.pink)
             
-        }
-//        Map(coordinateRegion: .constant(MKCoordinateRegion(center: coordinate, latitudinalMeters: 750, longitudinalMeters: 750)),interactionModes: .all)
+            LocationButton(.currentLocation) {
+                mapViewModel.requestAllowOnceLocationPermission()
+            }
+            .foregroundColor(.white)
+            .cornerRadius(8)
+            .labelStyle(.titleAndIcon)
+            .symbolVariant(.slash)
+            .padding(.bottom,50)
+        }.frame(minHeight: 450)
     }
+
 }
 
-extension MKCoordinateRegion {
-    
-    static func goldenGateRegion() -> MKCoordinateRegion {
-        MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.819527098978355, longitude:  -122.47854602016669), latitudinalMeters: 5000, longitudinalMeters: 5000)
-    }
-    
-    func getBinding() -> Binding<MKCoordinateRegion>? {
-        return Binding<MKCoordinateRegion>(.constant(self))
+struct MapView_Previews: PreviewProvider {
+    static var previews: some View {
+        MapView()
     }
 }

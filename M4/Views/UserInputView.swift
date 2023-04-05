@@ -10,14 +10,16 @@ import UIKit
 
 struct UserInputView: View {
     // let userState=["CO","WY"]
-    // let orgID = "131" //131 is FS, 139 is BLM
     @ObservedObject var facilityvm = RecreationViewModel()
     
     @State private(set) var userValue="CO"
+    @State private(set) var userOrg="131"
     
-    @State private var showDetails = false
+   // @State private var showDetails = false
     
     var States = ["CO", "WY", "UT", "NM"]
+    var Orgs = ["128", "131"]
+    //131 is FS, 139 is NPS
     
     //    enum Orgs: String, CaseIterable, Identifiable {
     //        case forest_service
@@ -33,10 +35,18 @@ struct UserInputView: View {
                         Text($0)
                     }
                 }
-                
-                .onChange(of: userValue) { _ in
-                    facilityvm.fetchData(state: userValue)
+                Picker("Select an organization: ", selection: $userOrg) {
+                    ForEach(Orgs, id: \.self) {
+                        Text($0)
+                    }
                 }
+//                .onChange(of: userValue) { _ in
+//                    facilityvm.fetchData(state: userValue)
+//                }
+                Button(action: {
+                    facilityvm.fetchData(state: userValue, org: userOrg)
+                  //  facilityvm.fetchFavorites(userID: "")
+                }){Text ("Find facilities")}
                 Section {
                     ForEach(facilityvm.facilityData) { facility in
                         NavigationLink(destination: {
@@ -48,7 +58,8 @@ struct UserInputView: View {
                 }
             }
             .onAppear {
-                facilityvm.fetchData(state: userValue)
+             //   facilityvm.fetchFavorites(userID: "")
+                facilityvm.fetchData(state: userValue, org: userOrg)
             }
             .navigationTitle("Public Lands Facility Finder")
             .navigationBarTitleDisplayMode(.inline)
