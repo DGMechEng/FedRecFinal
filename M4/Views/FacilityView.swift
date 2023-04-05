@@ -38,10 +38,9 @@ struct FacilityView: View {
                         Text("Map coordinates not available")
                             .padding(.horizontal)
                     } else {
-//                        MapView(coordinate: CLLocationCoordinate2D(latitude: facility.FacilityLatitude, longitude: facility.FacilityLongitude))
-//                            .frame(height: 300)
+//                        MapView(facilityCoord: CLLocationCoordinate2D(latitude: facility.FacilityLatitude, longitude: facility.FacilityLongitude))
+//                           // .frame(height: 300)
                         MapView()
-                         
                     }
                     Text("Activities at this facility:")
                         .padding(.horizontal)

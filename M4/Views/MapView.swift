@@ -10,8 +10,10 @@ import SwiftUI
 import CoreLocationUI
 
 struct MapView : View {
+    
+ //   var facilityCoord: CLLocationCoordinate2D
     @StateObject private var mapViewModel = MapViewModel()
-
+    
     var body: some View {
         ZStack(alignment: .bottom) {
             Map(coordinateRegion: $mapViewModel.region, showsUserLocation: true)
@@ -31,8 +33,8 @@ struct MapView : View {
 
 }
 
-struct MapView_Previews: PreviewProvider {
-    static var previews: some View {
-        MapView()
-    }
-}
+//struct MapView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MapView()
+//    }
+//}
