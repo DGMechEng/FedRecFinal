@@ -12,28 +12,20 @@ import SwiftUI
 
 final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 40, longitude: 120),span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10))
-    @Published var locationArray = [CLLocationCoordinate2D?](repeating: nil, count: 2)
+    @Published var locationArray = [CLLocationCoordinate2D(latitude: 0, longitude: 0),CLLocationCoordinate2D(latitude: 0, longitude: 0)]
     var facilityCoord = CLLocationCoordinate2D(latitude: 40, longitude: -120)
     
     let locationManager = CLLocationManager()
     
+//    convenience init(facCoord facility: CLLocationCoordinate2D) {
+//        self.init()
+//        self.facilityCoord = facility
+//    }
+    
     override init() {
         super.init()
-        //self.facilityCoord = coord
         locationManager.delegate = self
-     //   locationArray[0] = (getLocationCoord())
-      //  locationArray[1] = facilityCoord
-      //  self.calcSpan()
     }
-    
-//    convenience override init() {
-//        self.init()
-//        self.facilityCoord = CLLocationCoordinate2D(latitude: 0, longitude: 0)
-//        locationManager.delegate = self
-//        self.locations.append(getLocationCoord())
-//        self.locations.append(facilityCoord!)
-//        self.calcSpan()
-//    }
     
     func requestAllowOnceLocationPermission() {
         locationManager.requestLocation()
@@ -56,27 +48,33 @@ final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate 
         return self.region.center
     }
     
-//    func getFacilityCoord(facilityCoord: CLLocationCoordinate2D) {
-//        locationArray[1] = facilityCoord
+//    func setFacilityCoord(coord: CLLocationCoordinate2D) {
+//        facilityCoord = coord
+//        self.locationArray[1] = self.facilityCoord
 //    }
+    func getFacilityCoord(facilityCoord: CLLocationCoordinate2D) {
+        locationArray[1] = facilityCoord
+    }
     
     func calcSpan() {
+        //this function loops through the array of locations and finds the min/max lat/long values in order
+        //to define the MKCoordinateSpan region to show all locations
         var minLat = 90.0
         var maxLat = -90.0
         var minLong = 180.0
         var maxLong = -180.0
         for coord in self.locationArray {
-            if coord!.latitude < minLat {
-                minLat = coord!.latitude
+            if coord.latitude < minLat {
+                minLat = coord.latitude
             }
-            if coord!.latitude > maxLat {
-                maxLat = coord!.latitude
+            if coord.latitude > maxLat {
+                maxLat = coord.latitude
             }
-            if coord!.longitude < minLong {
-                minLong = coord!.longitude
+            if coord.longitude < minLong {
+                minLong = coord.longitude
             }
-            if coord!.longitude > maxLong {
-                maxLong = coord!.longitude
+            if coord.longitude > maxLong {
+                maxLong = coord.longitude
             }
         }
         self.region.span = MKCoordinateSpan(latitudeDelta: maxLat-minLat, longitudeDelta: maxLong-minLong)

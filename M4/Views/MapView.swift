@@ -11,11 +11,21 @@ import CoreLocationUI
 
 struct MapView : View {
     
- //   var facilityCoord: CLLocationCoordinate2D
-    @StateObject private var mapViewModel = MapViewModel()
+   // var facilityCoord: CLLocationCoordinate2D
+    
+//    init(facility: CLLocationCoordinate2D) {
+//        facilityCoord = facility
+//        _mapViewModel = StateObject(wrappedValue: MapViewModel(facCoord: facilityCoord))
+//    }
+    
+    @StateObject var mapViewModel = MapViewModel()
+    
+//    func setCoord () {
+//        mapViewModel.setFacilityCoord(coord: facilityCoord)
+//    }
     
     var body: some View {
-        ZStack(alignment: .bottom) {
+        return ZStack(alignment: .bottom) {
             Map(coordinateRegion: $mapViewModel.region, showsUserLocation: true)
                 .ignoresSafeArea()
                 .tint(.pink)

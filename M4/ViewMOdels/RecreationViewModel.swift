@@ -16,10 +16,11 @@ class RecreationViewModel : ObservableObject {
     private var url: String = ""
     private var facilityID = ["256826","10081910"]
     
-    func fetchData(state: String, org: String) {
-        url = "https://ridb.recreation.gov/api/v1/organizations/\(org)/facilities?limit=50&offset=0&state=CO&lastupdated=10-01-2018&apikey=570908ba-8eed-43ed-93bd-c7778f1e7a06"
-       // url = "https://ridb.recreation.gov/api/v1/organizations/\(org)/facilities?limit=20&offset=0&full=true&state=\(state)&lastupdated=10-01-2018&apikey=570908ba-8eed-43ed-93bd-c7778f1e7a06"
-       // url = "https://ridb.recreation.gov/api/v1/organizations/131/facilities?limit=20&offset=0&full=true&state=\(state)&activity=5&lastupdated=10-01-2018&apikey=570908ba-8eed-43ed-93bd-c7778f1e7a06"
+    func fetchData(state: String, org: String, activity: String) {
+        url = "https://ridb.recreation.gov/api/v1/organizations/\(org)/facilities?limit=10&offset=0&state=\(state)&activity=\(activity)&lastupdated=10-01-2018&apikey=570908ba-8eed-43ed-93bd-c7778f1e7a06"
+
+        //would be nice to use this endpoint too (can find facilities within certain distance), but no activity input.  Maybe two separate queries?
+//    https://ridb.recreation.gov/api/v1/facilities?limit=20&offset=0&state=CO&latitude=40.5&longitude=-105&radius=15&activity=6,BOATING&lastupdated=10-01-2018
         
         if let url = URL(string: self.url) {
             URLSession
