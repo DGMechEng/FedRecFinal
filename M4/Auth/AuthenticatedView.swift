@@ -56,7 +56,8 @@ struct AuthenticatedView<Content, Unauthenticated>: View where Content: View, Un
     case .authenticated:
       VStack {
         content()
-        Text("You're logged in as \(viewModel.displayName).")
+          //Text("You're logged in as \(viewModel.displayName).")
+          Text("You're logged in.")
         Button("Tap here for profile and to log out") {
           presentingProfileScreen.toggle()
         }

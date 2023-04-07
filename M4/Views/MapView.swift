@@ -33,7 +33,7 @@ struct MapView : View {
             }
             .foregroundColor(.white)
             .cornerRadius(8)
-            .labelStyle(.titleAndIcon)
+            .labelStyle(.iconOnly)
             .symbolVariant(.slash)
             .padding(.bottom,50)
         }.frame(minHeight: 450)

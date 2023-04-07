@@ -10,7 +10,7 @@ import WebKit
 
 struct DescriptionHTMLView: View {
     let text: String
-    let height: CGFloat
+   let height: CGFloat
     
     var body: some View {
         ViewHTMLText(html:text)

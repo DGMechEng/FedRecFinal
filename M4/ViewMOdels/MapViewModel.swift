@@ -11,7 +11,7 @@ import SwiftUI
 
 
 final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
-    @Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 40, longitude: 120),span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10))
+    @Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 40, longitude: -100),span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10))
     @Published var locationArray = [CLLocationCoordinate2D(latitude: 0, longitude: 0),CLLocationCoordinate2D(latitude: 0, longitude: 0)]
     @Published var mapLocations = [MapLocation(name: "Your Location", coordinate: CLLocationCoordinate2D(latitude: 0, longitude: 0)),MapLocation(name: "Facility Location", coordinate: CLLocationCoordinate2D(latitude: 0, longitude: 0))]
     

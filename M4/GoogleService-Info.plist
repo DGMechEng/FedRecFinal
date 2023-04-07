@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>311229707954-vsknc148rd4j4dnamsatt1nophsipg3t.apps.googleusercontent.com</string>
+	<string>311229707954-en4oirjpdqh90kdk6t4ner7ff9m7th50.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.311229707954-vsknc148rd4j4dnamsatt1nophsipg3t</string>
+	<string>com.googleusercontent.apps.311229707954-en4oirjpdqh90kdk6t4ner7ff9m7th50</string>
 	<key>API_KEY</key>
 	<string>AIzaSyB14FvAOX7-h_fLnU8uYxc5FyjELbKP4-I</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>edu.auburn.onlinecsse.Assignment3</string>
+	<string>edu.auburn.onlinecsse.FedRecApp</string>
 	<key>PROJECT_ID</key>
 	<string>fedrecapp-dfe0e</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:311229707954:ios:5dec163522555e6c69fbab</string>
+	<string>1:311229707954:ios:b37997ed730414d669fbab</string>
 </dict>
 </plist>
