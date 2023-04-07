@@ -13,6 +13,9 @@ import SwiftUI
 final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 40, longitude: 120),span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10))
     @Published var locationArray = [CLLocationCoordinate2D(latitude: 0, longitude: 0),CLLocationCoordinate2D(latitude: 0, longitude: 0)]
+    @Published var mapLocations = [MapLocation(name: "Your Location", coordinate: CLLocationCoordinate2D(latitude: 0, longitude: 0)),MapLocation(name: "Facility Location", coordinate: CLLocationCoordinate2D(latitude: 0, longitude: 0))]
+    
+    var facilityName = ""
     var facilityCoord = CLLocationCoordinate2D(latitude: 40, longitude: -120)
     
     let locationManager = CLLocationManager()
@@ -26,6 +29,11 @@ final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate 
         super.init()
         locationManager.delegate = self
     }
+    func fetchData(coord: CLLocationCoordinate2D, name: String) {
+        self.facilityCoord = coord
+        self.facilityName = name
+        requestAllowOnceLocationPermission()
+    }
     
     func requestAllowOnceLocationPermission() {
         locationManager.requestLocation()
@@ -38,8 +46,10 @@ final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate 
         
         DispatchQueue.main.async {
             self.region = MKCoordinateRegion(center: latestLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
-            self.locationArray[0] = (self.getLocationCoord())
-            self.locationArray[1] = self.facilityCoord
+            self.locationArray[0] = (self.getLocationCoord())  //user location
+            self.locationArray[1] = self.facilityCoord //facility location
+            self.mapLocations[0] = MapLocation(name: "Your Location", coordinate: self.locationArray[0])
+            self.mapLocations[1] = MapLocation(name: self.facilityName, coordinate: self.locationArray[1])
             self.calcSpan()
         }
     }
@@ -63,6 +73,8 @@ final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate 
         var maxLat = -90.0
         var minLong = 180.0
         var maxLong = -180.0
+        var avgLat = 0.0
+        var avgLong = 0.0
         for coord in self.locationArray {
             if coord.latitude < minLat {
                 minLat = coord.latitude
@@ -77,10 +89,19 @@ final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate 
                 maxLong = coord.longitude
             }
         }
-        self.region.span = MKCoordinateSpan(latitudeDelta: maxLat-minLat, longitudeDelta: maxLong-minLong)
+        avgLat = (maxLat - minLat)/2 + minLat
+        avgLong = (maxLong - minLong)/2 + minLong
+        self.region.span = MKCoordinateSpan(latitudeDelta: maxLat-minLat+0.5, longitudeDelta: maxLong-minLong+0.5)
+        self.region.center=CLLocationCoordinate2D(latitude: avgLat, longitude: avgLong)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error.localizedDescription)
     }
+}
+
+struct MapLocation: Identifiable {
+    let id = UUID()
+    let name: String
+    let coordinate: CLLocationCoordinate2D
 }

@@ -11,27 +11,25 @@ import CoreLocationUI
 
 struct MapView : View {
     
-   // var facilityCoord: CLLocationCoordinate2D
-    
-//    init(facility: CLLocationCoordinate2D) {
-//        facilityCoord = facility
-//        _mapViewModel = StateObject(wrappedValue: MapViewModel(facCoord: facilityCoord))
-//    }
+   var facilityCoord: CLLocationCoordinate2D
+    var facilityName: String
     
     @StateObject var mapViewModel = MapViewModel()
     
-//    func setCoord () {
-//        mapViewModel.setFacilityCoord(coord: facilityCoord)
-//    }
-    
     var body: some View {
         return ZStack(alignment: .bottom) {
-            Map(coordinateRegion: $mapViewModel.region, showsUserLocation: true)
+            Map(coordinateRegion: $mapViewModel.region, annotationItems: mapViewModel.mapLocations, annotationContent: {
+                location in MapAnnotation(coordinate: location.coordinate, anchorPoint: CGPoint(x: 0.5, y: 0.5), content: {
+                    Image(systemName: "pin.circle.fill").foregroundColor(.blue)
+                    Text(location.name)
+                })
+            })
                 .ignoresSafeArea()
                 .tint(.pink)
             
             LocationButton(.currentLocation) {
-                mapViewModel.requestAllowOnceLocationPermission()
+                mapViewModel.fetchData(coord: facilityCoord, name: facilityName)
+                //mapViewModel.requestAllowOnceLocationPermission()
             }
             .foregroundColor(.white)
             .cornerRadius(8)
@@ -48,3 +46,5 @@ struct MapView : View {
 //        MapView()
 //    }
 //}
+
+

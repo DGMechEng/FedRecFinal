@@ -60,6 +60,7 @@
 		B3EB00AE29C9437C00D0D00A /* ActivityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityModel.swift; sourceTree = "<group>"; };
 		B3EB00B329C943B400D0D00A /* RecreationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecreationViewModel.swift; sourceTree = "<group>"; };
 		B3EB00B629C9444D00D0D00A /* UserInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInputView.swift; sourceTree = "<group>"; };
+		B3F2664629E079C600BCFE67 /* FedRecApp-M4-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "FedRecApp-M4-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +80,7 @@
 		ACF5E03329BE957F00DD981A = {
 			isa = PBXGroup;
 			children = (
+				B3F2664629E079C600BCFE67 /* FedRecApp-M4-Info.plist */,
 				ACF5E03E29BE957F00DD981A /* M4 */,
 				ACF5E03D29BE957F00DD981A /* Products */,
 			);
@@ -397,8 +399,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"M4/Preview Content\"";
+				DEVELOPMENT_TEAM = 56GUM85675;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "FedRecApp-M4-Info.plist";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Need location to see user's location";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -426,8 +430,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"M4/Preview Content\"";
+				DEVELOPMENT_TEAM = 56GUM85675;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "FedRecApp-M4-Info.plist";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Need location to see user's location";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

@@ -11,16 +11,16 @@ import SwiftUI
 class RecreationViewModel : ObservableObject {
     
     @Published private(set) var facilityData = [FacilityModel]()
-//    @Published private(set) var facility = FacilityModel()
-
+    //    @Published private(set) var facility = FacilityModel()
+    
     private var url: String = ""
     private var facilityID = ["256826","10081910"]
     
     func fetchData(state: String, org: String, activity: String) {
-        url = "https://ridb.recreation.gov/api/v1/organizations/\(org)/facilities?limit=10&offset=0&state=\(state)&activity=\(activity)&lastupdated=10-01-2018&apikey=570908ba-8eed-43ed-93bd-c7778f1e7a06"
-
+        url = "https://ridb.recreation.gov/api/v1/organizations/\(org)/facilities?limit=10&offset=0&full=true&state=\(state)&activity=\(activity)&lastupdated=10-01-2018&apikey=570908ba-8eed-43ed-93bd-c7778f1e7a06"
+        
         //would be nice to use this endpoint too (can find facilities within certain distance), but no activity input.  Maybe two separate queries?
-//    https://ridb.recreation.gov/api/v1/facilities?limit=20&offset=0&state=CO&latitude=40.5&longitude=-105&radius=15&activity=6,BOATING&lastupdated=10-01-2018
+        //    https://ridb.recreation.gov/api/v1/facilities?limit=20&offset=0&state=CO&latitude=40.5&longitude=-105&radius=15&activity=6,BOATING&lastupdated=10-01-2018
         
         if let url = URL(string: self.url) {
             URLSession
@@ -45,43 +45,6 @@ class RecreationViewModel : ObservableObject {
                 }.resume()
         }
     }
-    
-//    func fetchFavorites(userID: String) {
-//
-//        //need to get all facility IDs associated with userID
-//      //  ForEach(0..<facilityID.count) { index in
-//
-//            url = "https://ridb.recreation.gov/api/v1/facilities/\(facilityID[0])?apikey=570908ba-8eed-43ed-93bd-c7778f1e7a06"
-//
-//            if let url = URL(string: self.url) {
-//                URLSession
-//                    .shared
-//                    .dataTask(with: url) { (data, response, error) in
-//                        if let error = error {
-//                            print (error)
-//                        } else {
-//                            if let data = data {
-//                                do {
-//                                    let results = try JSONDecoder().decode(FacilityModel.self, from: data)
-//                                    DispatchQueue.main.async {
-//                                        self.facility.FacilityDescription = results.FacilityDescription
-//                                        self.facility.FacilityName = results.FacilityName
-//                                        self.facility.FacilityDescription = results.FacilityDescription
-//                                        self.facility.FacilityLatitude = results.FacilityLatitude
-//                                        self.facility.FacilityLongitude = results.FacilityLongitude
-//                                        self.facility.ACTIVITY = results.ACTIVITY
-//                                        self.facility.LINK = results.LINK
-//                                    }
-//                                    //maybe this is where I should determine which locations are closest?
-//                                } catch {
-//                                    print(error)
-//                                }
-//                            }
-//                        }
-//                    }.resume()
-//            }
-//       // }
-//    }
 }
 
 
