@@ -14,10 +14,12 @@ class RecreationViewModel : ObservableObject {
     //    @Published private(set) var facility = FacilityModel()
     
     private var url: String = ""
-    private var facilityID = ["256826","10081910"]
+//    private var facilityID = ["256826","10081910"]
     
     func fetchData(state: String, org: String, activity: String) {
         url = "https://ridb.recreation.gov/api/v1/organizations/\(org)/facilities?limit=10&offset=0&full=true&state=\(state)&activity=\(activity)&lastupdated=10-01-2018&apikey=570908ba-8eed-43ed-93bd-c7778f1e7a06"
+        
+        //endpoint for calling individual facility "https://ridb.recreation.gov/api/v1/facilities/\(facID)?apikey=570908ba-8eed-43ed-93bd-c7778f1e7a06"
         
         //would be nice to use this endpoint too (can find facilities within certain distance), but no activity input.  Maybe two separate queries?
         //    https://ridb.recreation.gov/api/v1/facilities?limit=20&offset=0&state=CO&latitude=40.5&longitude=-105&radius=15&activity=6,BOATING&lastupdated=10-01-2018

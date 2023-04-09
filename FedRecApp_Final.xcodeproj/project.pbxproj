@@ -19,6 +19,7 @@
 		B3386E4D29D8894E00F841E8 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3386E4C29D8894E00F841E8 /* SignupView.swift */; };
 		B3386E4F29D8896900F841E8 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3386E4E29D8896900F841E8 /* LoginView.swift */; };
 		B3386E5129D88A0900F841E8 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3386E5029D88A0900F841E8 /* AuthenticationViewModel.swift */; };
+		B37374D229E1E1E6004CF1B7 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37374D129E1E1E6004CF1B7 /* FavoritesViewModel.swift */; };
 		B39E7DE029CA9227000B4B74 /* UserInputModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E7DDF29CA9227000B4B74 /* UserInputModel.swift */; };
 		B39E7DE229CA993B000B4B74 /* LinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E7DE129CA993B000B4B74 /* LinkView.swift */; };
 		B39E7DE429CA9EEA000B4B74 /* DescriptionHTMLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E7DE329CA9EEA000B4B74 /* DescriptionHTMLView.swift */; };
@@ -48,6 +49,7 @@
 		B3386E4C29D8894E00F841E8 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
 		B3386E4E29D8896900F841E8 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		B3386E5029D88A0900F841E8 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		B37374D129E1E1E6004CF1B7 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
 		B39E7DDF29CA9227000B4B74 /* UserInputModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInputModel.swift; sourceTree = "<group>"; };
 		B39E7DE129CA993B000B4B74 /* LinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkView.swift; sourceTree = "<group>"; };
 		B39E7DE329CA9EEA000B4B74 /* DescriptionHTMLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionHTMLView.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				B3EB00B329C943B400D0D00A /* RecreationViewModel.swift */,
+				B37374D129E1E1E6004CF1B7 /* FavoritesViewModel.swift */,
 				B3A928BE29DB9A6700C8776B /* FavoriteViewModel.swift */,
 				B3386E5029D88A0900F841E8 /* AuthenticationViewModel.swift */,
 				B3CD876729DCEFBE004A9B63 /* MapViewModel.swift */,
@@ -280,6 +283,7 @@
 				B3EB00AA29C9435F00D0D00A /* LinkModel.swift in Sources */,
 				B3386E4F29D8896900F841E8 /* LoginView.swift in Sources */,
 				B3386E4B29D8893000F841E8 /* UserProfileView.swift in Sources */,
+				B37374D229E1E1E6004CF1B7 /* FavoritesViewModel.swift in Sources */,
 				B3386E4929D8891200F841E8 /* AuthenticationView.swift in Sources */,
 				B3386E4D29D8894E00F841E8 /* SignupView.swift in Sources */,
 				ACF5E04029BE957F00DD981A /* FedRecreationApp.swift in Sources */,
