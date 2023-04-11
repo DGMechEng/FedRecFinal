@@ -7,6 +7,7 @@
 
 import SwiftUI
 import FirebaseCore
+import Firebase
 
 
 class AppDelegate: NSObject, UIApplicationDelegate {
@@ -20,6 +21,10 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 @main
 struct FedRecreationApp: App {
+//    init() {
+//        FirebaseApp.configure()
+//    }
+    
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     var body: some Scene {
         WindowGroup {

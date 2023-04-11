@@ -61,7 +61,7 @@ struct UserInputView: View {
                             NavigationLink(destination: {
                                 FacilityView(facility: facility)
                             }, label: {
-                                Text(facility.FacilityName)
+                                Text(facility.facilityName)
                             })
                         }
                     } else {
@@ -72,7 +72,7 @@ struct UserInputView: View {
                             NavigationLink(destination: {
                                 FacilityView(facility: facility)
                             }, label: {
-                                Text(facility.FacilityName)
+                                Text(facility.facilityName)
                             })
                         }
                         
