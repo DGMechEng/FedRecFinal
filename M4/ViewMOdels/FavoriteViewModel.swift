@@ -9,7 +9,7 @@ import Foundation
 
 class FavoriteViewModel: ObservableObject, Identifiable {
     
-    @Published private(set) var favoriteData = FacilityModel(FacilityID: "12345", FacilityName: "Canon Infierno #461", FacilityDescription: "Description", FacilityLatitude: 40, FacilityLongitude: -105, ACTIVITY: [ActivityModel(ActivityName: "Biking", FacilityActivityDescription: "You can bike here")], LINK: [LinkModel(URL: "www.google.com", Title: "Google")])
+    @Published private(set) var favoriteData = FacilityModel(from: <#Decoder#>)//FacilityModel(FacilityID: "12345", FacilityName: "Canon Infierno #461", FacilityDescription: "Description", FacilityLatitude: 40, FacilityLongitude: -105, ACTIVITY: [ActivityModel(ActivityName: "Biking", FacilityActivityDescription: "You can bike here")], LINK: [LinkModel(URL: "www.google.com", Title: "Google")])
     
     private var url: String = ""
     

@@ -49,12 +49,12 @@ struct UserInputView: View {
                     }
                 }
                 
-//                Section {
-//                    Button("Show favorites") {
-//                        showFavorites.toggle()
-//                        favoritesvm.fetchData()
-//                    }
-//                }
+                Section {
+                    Button("Show favorites") {
+                        showFavorites.toggle()
+                        favoritesvm.fetchData()
+                    }
+                }
                 Section {
                     if(!showFavorites) {
                         ForEach(recreationvm.facilityData) { facility in
