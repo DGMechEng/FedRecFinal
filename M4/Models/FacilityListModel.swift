@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FacilityListModel: Identifiable {
+struct FacilityListModel: Identifiable, Codable {
     var id: String
     var facilities: [String]
 }

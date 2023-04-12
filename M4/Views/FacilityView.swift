@@ -13,32 +13,37 @@ struct FacilityView: View {
     
     var facility: FacilityModel
     let webView = WKWebView()
+    let favorites = FavoritesViewModel()
     
     var body: some View {
         ScrollView {
        
             VStack(alignment: .leading, spacing: 10) {
-                HStack {Text(facility.facilityName)
+                HStack {Text(facility.FacilityName)
                         .font(.system(size: 25, design: .rounded))
                         .padding(.horizontal)
-                    Button(action: {}) {
+                    Button(action: {favorites.addFacility(fac: facility.FacilityID)}) {
                         HStack {
                             Text("Favorite")
-                            Image(systemName: "heart")
+                            if favorites.readFacilities.contains(facility.FacilityID) {
+                                Image(systemName: "heart.fill")
+                            } else {
+                                Image(systemName: "heart")
+                            }
                         }
                     }
                     //Text(facility.FacilityID)
                 }
-                   DescriptionHTMLView (text: facility.facilityDescription, height: 250)
+                   DescriptionHTMLView (text: facility.FacilityDescription, height: 250)
                     .padding(.horizontal)
                     LinkView(links: facility.LINK)
                     .padding(.horizontal)
                     //Some facilities don't have coordinates, need to handle this
-                    if (facility.facilityLongitude==0.0 || facility.facilityLatitude == 0.0) {
+                    if (facility.FacilityLongitude==0.0 || facility.FacilityLatitude == 0.0) {
                         Text("Map coordinates not available")
                             .padding(.horizontal)
                     } else {
-                        MapView(facilityCoord: CLLocationCoordinate2D(latitude: facility.facilityLatitude, longitude: facility.facilityLongitude), facilityName: facility.facilityName)
+                        MapView(facilityCoord: CLLocationCoordinate2D(latitude: facility.FacilityLatitude, longitude: facility.FacilityLongitude), facilityName: facility.FacilityName)
 //                           // .frame(height: 300)
                       //  MapView()
                     }

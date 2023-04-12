@@ -12,13 +12,12 @@ import FirebaseFirestoreSwift
 import FirebaseAuth
 
 class FavoritesViewModel: ObservableObject {
-    @Published private(set) var facilityData: [FacilityModel] = []
+    @Published private(set) var facilityData = [FacilityModel]()//: [FacilityModel] = []
     private var favorite = FavoriteViewModel()
-    private var facilityID = [String]()
-    
-    
+   // private var readFacilities = [String]()
+     var readFacilities = ["256826","10081910"]
+
     func fetchData() {
-        
         //Get reference to database
         let db = Firestore.firestore()
         
@@ -28,16 +27,20 @@ class FavoritesViewModel: ObservableObject {
 
        docRef.getDocument { (document, error) in
             if let document = document, document.exists {
-                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                print("Document data: \(dataDescription)")
-            } else {
+                let data = document.data()
+                self.readFacilities = data?["userFavorites"] as? [String] ?? []
+             } else {
                 print("Document does not exist")
             }
         }
         
-        for facility in facilityID {
+        for facility in readFacilities {
             favorite.fetchData(facID: facility)
             self.facilityData.append(favorite.favoriteData)
         }
+    }
+    
+    func addFacility(fac: String) {
+        self.readFacilities.append(fac)
     }
 }

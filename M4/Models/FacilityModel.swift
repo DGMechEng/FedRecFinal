@@ -18,12 +18,11 @@ struct FacilityModel: Codable, Identifiable {
         return UUID()
     }
   //  let id = UUID()
-    let facilityID: String
-    let facilityName: String
-    let facilityDescription: String
-    let facilityLatitude: Double
-    let facilityLongitude: Double
-    let favoriteIcon: String
+    let FacilityID: String
+    let FacilityName: String
+    let FacilityDescription: String
+    let FacilityLatitude: Double
+    let FacilityLongitude: Double
     let ACTIVITY: [ActivityModel]
     let LINK: [LinkModel]
 }

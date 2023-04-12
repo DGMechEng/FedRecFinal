@@ -49,38 +49,30 @@ struct UserInputView: View {
                     }
                 }
                 
-                Section {
-                    Button("Show favorites") {
-                        showFavorites.toggle()
-                        favoritesvm.fetchData()
-                    }
-                }
+//                Section {
+//                    Button("Show favorites") {
+//                        showFavorites.toggle()
+//                        favoritesvm.fetchData()
+//                    }
+//                }
                 Section {
                     if(!showFavorites) {
                         ForEach(recreationvm.facilityData) { facility in
                             NavigationLink(destination: {
                                 FacilityView(facility: facility)
                             }, label: {
-                                Text(facility.facilityName)
+                                Text(facility.FacilityName)
                             })
                         }
                     } else {
-                        //this is the code to show navigationlinks for all favorite sites, so maybe I need one viewmodel that gets individual sites through API calls and another view model that puts them into an array/other object that I can iterate through here
-                    //    favoritesvm.fetchData(facID: "256826") //where do I call this? Can't call here because it doesn't conform to View
                         
                         ForEach(favoritesvm.facilityData) { facility in
                             NavigationLink(destination: {
                                 FacilityView(facility: facility)
                             }, label: {
-                                Text(facility.facilityName)
+                                Text(facility.FacilityName)
                             })
                         }
-                        
-//                        NavigationLink(destination: {
-//                            FacilityView(facility: favoritesvm.favoriteData)
-//                        }, label: {
-//                            Text(favoritesvm.favoriteData.FacilityName)
-//                        })
                     }
                 }
             }
