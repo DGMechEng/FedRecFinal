@@ -31,7 +31,7 @@ struct UserInputView: View {
                     }.onChange(of: userValue) { _ in
                         recreationvm.fetchData(state: userValue, org: userOrg, activity: userActivity)
                     }
-                    
+                    Spacer()
                     Picker("Select an organization: ", selection: $userOrg) {
                         ForEach(options.Orgs, id: \.orgID) {
                             Text($0.orgName)

@@ -13,19 +13,19 @@ struct FacilityResults: Codable {
     let RECDATA: [FacilityModel]
 }
 
-struct FacilityIdentifiable: Codable, Identifiable {
-    var id: UUID {
-        return UUID()
-    }
-    let facility: FacilityModel
-}
+//struct FacilityIdentifiable: Codable, Identifiable {
+//    var id: UUID {
+//        return UUID()
+//    }
+//    let facility: FacilityModel
+//}
 //Now how the f do I incorporate this?
 
 struct FacilityModel: Codable, Identifiable {
-    var id: UUID {
-        return UUID()
+    var id: String {
+        FacilityID //computed property since API response doesn't have an item called "id"
     }
-  //  let id = UUID()
+
     let FacilityID: String
     let FacilityName: String
     let FacilityDescription: String

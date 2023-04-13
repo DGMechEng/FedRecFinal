@@ -41,6 +41,23 @@ class FavoritesViewModel: ObservableObject {
     }
     
     func addFacility(fac: String) {
-        self.readFacilities.append(fac)
+        let db = Firestore.firestore()
+        guard let userID = Auth.auth().currentUser?.uid else {return}
+      //  let docRef = db.collection("Favorites").document(userID)
+            
+        var readFacilitiesSet = Set(readFacilities)
+        readFacilitiesSet.insert(fac)
+        readFacilities=Array(readFacilitiesSet)
+        
+        db.collection("Favorites").document(userID).setData(["userFavorites": self.readFacilities])
+        { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            } else {
+                print("Document successfully written!")
+            }
+        }
+        //Now, write readFacilities out to firebase
+  
     }
 }
