@@ -29,15 +29,19 @@ struct UserInputView: View {
                             Text($0)
                         }
                     }.onChange(of: userValue) { _ in
-                        recreationvm.fetchData(state: userValue, org: userOrg, activity: userActivity)
+                        Task {
+                            await recreationvm.fetchData(state: userValue, org: userOrg, activity: userActivity)
+                        }
                     }
-                    Spacer()
+             
                     Picker("Select an organization: ", selection: $userOrg) {
                         ForEach(options.Orgs, id: \.orgID) {
                             Text($0.orgName)
                         }
                     }.onChange(of: userOrg) { _ in
-                        recreationvm.fetchData(state: userValue, org: userOrg, activity: userActivity)
+                        Task {
+                            await recreationvm.fetchData(state: userValue, org: userOrg, activity: userActivity)
+                        }
                     }
                     
                     Picker("Select an activity: ", selection: $userActivity) {
@@ -45,16 +49,18 @@ struct UserInputView: View {
                             Text($0.activityName)
                         }
                     }.onChange(of: userActivity) { _ in
-                        recreationvm.fetchData(state: userValue, org: userOrg, activity: userActivity)
+                        Task{
+                            await recreationvm.fetchData(state: userValue, org: userOrg, activity: userActivity)
+                        }
                     }
                 }
                 
-                Section {
-                    Button("Show favorites") {
-                        showFavorites.toggle()
-                        favoritesvm.fetchData()
-                    }
-                }
+//                Section {
+//                    Button("Show favorites") {
+//                        showFavorites.toggle()
+//                        favoritesvm.fetchData()
+//                    }
+//                }
                 Section {
                     if(!showFavorites) {
                         ForEach(recreationvm.facilityData) { facility in
@@ -77,10 +83,18 @@ struct UserInputView: View {
                 }
             }
             .onAppear {
-                recreationvm.fetchData(state: userValue, org: userOrg, activity: userActivity)
+                Task {
+                    await recreationvm.fetchData(state: userValue, org: userOrg, activity: userActivity)
+                }
             }
             .navigationTitle("Public Lands Facility Finder")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                Button("Favorites") {
+                    showFavorites.toggle()
+                    favoritesvm.fetchData()
+                }
+            }
         }
     }
     

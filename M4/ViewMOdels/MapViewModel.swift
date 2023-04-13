@@ -20,11 +20,6 @@ final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate 
     
     let locationManager = CLLocationManager()
     
-//    convenience init(facCoord facility: CLLocationCoordinate2D) {
-//        self.init()
-//        self.facilityCoord = facility
-//    }
-    
     override init() {
         super.init()
         locationManager.delegate = self
