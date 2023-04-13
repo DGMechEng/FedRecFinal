@@ -34,7 +34,7 @@ struct FacilityView: View {
                     }
                     //Text(facility.FacilityID)
                 }
-                   DescriptionHTMLView (text: facility.FacilityDescription, height: 250)
+                   DescriptionHTMLView (text: facility.FacilityDescription, height: 150)
                     .padding(.horizontal)
                     LinkView(links: facility.LINK)
                     .padding(.horizontal)
