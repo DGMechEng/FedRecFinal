@@ -13,28 +13,18 @@ class FavoriteViewModel: ObservableObject, Identifiable {
     
     private var url: String = ""
     
-    func fetchData(facID: String)  {
+    func fetchData(facID: String) async {
         url = "https://ridb.recreation.gov/api/v1/facilities/\(facID)?apikey=570908ba-8eed-43ed-93bd-c7778f1e7a06&full=true"
        
-        if let url = URL(string: url)  {
-            URLSession
-                .shared
-                .dataTask(with: url) {(data, response, error) in
-                    if let error = error {
-                        print(error)
-                    } else {
-                        if let data = data {
-                            do {
-                                let results = try JSONDecoder().decode(FacilityModel.self, from: data)
-                                self.favoriteData = results.self
-
-                            } catch {
-                                print(error)
-                            }
-                        }
-                    }
-                }.resume()
-        }
+            if let url = URL(string: self.url) {
+                do {
+                    let (data, _) = try await URLSession.shared.data(from: url)
+                    let results = try JSONDecoder().decode(FacilityModel.self, from: data)
+                    self.favoriteData = results.self
+                } catch {
+                    print(error)
+                }
+            }
     }
 
 

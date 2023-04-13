@@ -14,8 +14,8 @@ import FirebaseAuth
 class FavoritesViewModel: ObservableObject {
     @Published private(set) var facilityData = [FacilityModel]()//: [FacilityModel] = []
     private var favorite = FavoriteViewModel()
-   // private var readFacilities = [String]()
-     var readFacilities = ["256826","10081910"]
+    private(set) var readFacilities = [String]()
+    // var readFacilities = ["256826","10081910"]
 
     func fetchData() {
         //Get reference to database
@@ -35,7 +35,9 @@ class FavoritesViewModel: ObservableObject {
         }
         
         for facility in readFacilities {
-            favorite.fetchData(facID: facility)
+            Task {
+                await favorite.fetchData(facID: facility)
+            }
             self.facilityData.append(favorite.favoriteData)
         }
     }
