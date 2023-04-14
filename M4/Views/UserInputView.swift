@@ -93,6 +93,7 @@ struct UserInputView: View {
                 Button("Favorites") {
                    showFavorites.toggle()
                     favoritesvm.fetchData()
+                    favoritesvm.getFacilityInfo()
                 }
             }
         }

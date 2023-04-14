@@ -15,7 +15,8 @@ class RecreationViewModel : ObservableObject {
     private var url: String = ""
 
 //        // Would be nice to use this endpoint for finding nearby facilities   https://ridb.recreation.gov/api/v1/facilities?limit=20&offset=0&state=CO&latitude=40.5&longitude=-105&radius=15&activity=6,BOATING&lastupdated=10-01-2018
-
+    
+    @MainActor
     func fetchData(state: String, org: String, activity: String) async {
         url = "https://ridb.recreation.gov/api/v1/organizations/\(org)/facilities?limit=200&offset=0&full=true&state=\(state)&activity=\(activity)&lastupdated=10-01-2018&apikey=570908ba-8eed-43ed-93bd-c7778f1e7a06"
         

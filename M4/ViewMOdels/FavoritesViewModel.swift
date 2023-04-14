@@ -15,7 +15,7 @@ class FavoritesViewModel: ObservableObject {
     @Published private(set) var facilityData = [FacilityModel]()//: [FacilityModel] = []
     private var favorite = FavoriteViewModel()
     private(set) var readFacilities = [String]()
-    // var readFacilities = ["256826","10081910"]
+     //var readFacilities = [""]
 
     func fetchData()  {
         //Get reference to database
@@ -24,39 +24,29 @@ class FavoritesViewModel: ObservableObject {
         //Get reference to user
         guard let userID = Auth.auth().currentUser?.uid else {return}
         let docRef = db.collection("Favorites").document(userID)
-
-//       docRef.getDocument { (document, error) in
-//            if let document = document, document.exists {
-//                let data = document.data()
-//                self.readFacilities = data?["userFavorites"] as? [String] ?? []
-//             } else {
-//                print("Document does not exist")
-//            }
-//        }
  
            docRef.getDocument { (document, error) in
                 if let document = document, document.exists {
                     let data = document.data()
-                    self.readFacilities = data!["userFavorites"] as! [String]
-                    var dataDescription = data.map(String.init(describing:)) ?? "nil"
-                    print("Document data: \(dataDescription)") //None of this appears to be happening (based on console) until I return from fetchData.  Do I need to make a separate call somehow?
-                    self.readFacilities = data!["userFavorites"] as! [String]
-                    dataDescription = data.map(String.init(describing:)) ?? "nil"
+                    self.readFacilities = data?["userFavorites"] as? [String] ?? []
+                    let dataDescription = data.map(String.init(describing:)) ?? "nil"
                     print("Document data: \(dataDescription)") //None of this appears to be happening (based on console) until I return from fetchData.  Do I need to make a separate call somehow?
                  } else {
                     print("Document does not exist")
                 }
             }
         
-//        docRef.getDocument { (document, error) in
-//                    if let document = document, document.exists {
-//                        let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-//                        print("Document data: \(dataDescription)")
-//                    } else {
-//                        print("Document does not exist")
-//                    }
-//                }
-        
+//          Abhi, I moved this for loop to the getFacilityInfo() method.  Now I'm calling that when the user clicks "Favorites".  Still doesn't work :-(
+//        for facility in readFacilities {
+//            Task {
+//                await favorite.fetchData(facID: facility)
+//            }
+//            self.facilityData.append(favorite.favoriteData)
+//            print(self.facilityData)
+//        }
+    }
+    
+    func getFacilityInfo() {
         for facility in readFacilities {
             Task {
                 await favorite.fetchData(facID: facility)
@@ -103,4 +93,6 @@ class FavoritesViewModel: ObservableObject {
             }
         }
     }
+    
+
 }
