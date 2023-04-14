@@ -67,7 +67,7 @@ struct UserInputView: View {
                             NavigationLink(destination: {
                                 FacilityView(facility: facility)
                             }, label: {
-                                Text(facility.FacilityName)
+                                Text(facility.FacilityName!)
                             })
                         }
                     } else {
@@ -76,7 +76,7 @@ struct UserInputView: View {
                             NavigationLink(destination: {
                                 FacilityView(facility: facility)
                             }, label: {
-                                Text(facility.FacilityName)
+                                Text(facility.FacilityName!)
                             })
                         }
                     }
@@ -91,7 +91,7 @@ struct UserInputView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 Button("Favorites") {
-                    showFavorites.toggle()
+                   showFavorites.toggle()
                     favoritesvm.fetchData()
                 }
             }

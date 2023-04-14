@@ -22,15 +22,15 @@ struct FacilityResults: Codable {
 //Now how the f do I incorporate this?
 
 struct FacilityModel: Codable, Identifiable {
-    var id: String {
+    var id: String? {
         FacilityID //computed property since API response doesn't have an item called "id"
     }
 
-    let FacilityID: String
-    let FacilityName: String
-    let FacilityDescription: String
-    let FacilityLatitude: Double
-    let FacilityLongitude: Double
-    let ACTIVITY: [ActivityModel]
-    let LINK: [LinkModel]
+    var FacilityID: String?
+    var FacilityName: String?
+    var FacilityDescription: String?
+    var FacilityLatitude: Double?
+    var FacilityLongitude: Double?
+    var ACTIVITY: [ActivityModel]?
+    var LINK: [LinkModel]?
 }

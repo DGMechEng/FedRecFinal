@@ -24,6 +24,7 @@ final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate 
         super.init()
         locationManager.delegate = self
     }
+    
     func fetchData(coord: CLLocationCoordinate2D, name: String) {
         self.facilityCoord = coord
         self.facilityName = name
