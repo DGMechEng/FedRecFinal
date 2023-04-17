@@ -12,17 +12,9 @@ import FirebaseFirestoreSwift
 import FirebaseAuth
 
 class FavoritesViewModel: ObservableObject {
-    @Published private(set) var facilityData = [FacilityModel]()//: [FacilityModel] = []
-    private var favorite = FavoriteViewModel()
-    private(set) var readFacilities = [String]()
-    // var readFacilities = ["235752"]
- //   var readFacilities = [""]
-    func updateFavorites() {
-        self.fetchData()
-        self.getFacilityInfo()
-    }
-    
-    func fetchData()  {
+    @Published private(set) var readFacilities = [String]()
+
+    func fetchData() async {
         //Get reference to database
         let db = Firestore.firestore()
         
@@ -34,42 +26,22 @@ class FavoritesViewModel: ObservableObject {
                 if let document = document, document.exists {
                     let data = document.data()
                     self.readFacilities = data?["userFavorites"] as? [String] ?? []
-                    let dataDescription = data.map(String.init(describing:)) ?? "nil"
-                    print("Document data: \(dataDescription)") //None of this appears to be happening (based on console) until I return from fetchData.  Do I need to make a separate call somehow?
                  } else {
                     print("Document does not exist")
                 }
             }
-        
-//          Abhi, I moved this for loop to the getFacilityInfo() method.  Now I'm calling that when the user clicks "Favorites".  Still doesn't work :-(
-//        for facility in readFacilities {
-//            Task {
-//                await favorite.fetchData(facID: facility)
-//            }
-//            self.facilityData.append(favorite.favoriteData)
-//            print(self.facilityData)
-//        }
-    }
-    
-    func getFacilityInfo() {
-        for facility in readFacilities {
-            Task {
-                await favorite.fetchData(facID: facility)
-            }
-            self.facilityData.append(favorite.favoriteData)
-            print(self.facilityData)
-        }
     }
     
     func addFacility(fac: String) {
         let db = Firestore.firestore()
         guard let userID = Auth.auth().currentUser?.uid else {return}
             
-        var readFacilitiesSet = Set(readFacilities)
-        readFacilitiesSet.insert(fac)
-        readFacilities=Array(readFacilitiesSet)
+//        var readFacilitiesSet = Set(readFacilities)
+//        readFacilitiesSet.insert(fac)
+//        readFacilities=Array(readFacilitiesSet)
         
-        db.collection("Favorites").document(userID).setData(["userFavorites": self.readFacilities])
+        db.collection("Favorites").document(userID).updateData([
+            "userFavorites": FieldValue.arrayUnion([fac])])
         { err in
             if let err = err {
                 print("Error writing document: \(err)")

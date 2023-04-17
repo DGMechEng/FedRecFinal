@@ -9,23 +9,19 @@ import SwiftUI
 import UIKit
 
 struct UserInputView: View {
-
+    
     @ObservedObject var recreationvm = RecreationViewModel()
-    //@ObservedObject var favoritesvm = FavoritesViewModel()
-    @StateObject var favoritesvm = FavoritesViewModel()
+    @ObservedObject var favoritesvm = FavoritesViewModel()
     
     @State private(set) var userValue="CO"
     @State private(set) var userOrg="131"
     @State private(set) var userActivity=""
-    @State private var showFavorites = false
-    
     private var options = UserOptions()
-
+    
     var body: some View {
-        
         NavigationStack {
             List {
-                Section {
+                Section("Filter") {
                     Picker("Select a state: ", selection: $userValue) {
                         ForEach(options.States, id: \.self) {
                             Text($0)
@@ -35,7 +31,7 @@ struct UserInputView: View {
                             await recreationvm.fetchData(state: userValue, org: userOrg, activity: userActivity)
                         }
                     }
-             
+                    
                     Picker("Select an organization: ", selection: $userOrg) {
                         ForEach(options.Orgs, id: \.orgID) {
                             Text($0.orgName)
@@ -56,49 +52,34 @@ struct UserInputView: View {
                         }
                     }
                 }
-
-                Section {
-                    if(!showFavorites) {
-                        ForEach(recreationvm.facilityData) { facility in
-                            NavigationLink(destination: {
-                                FacilityView(facility: facility)
-                            }, label: {
-                                Text(facility.FacilityName!)
-                            })
-                        }
-                    } else {
-                        
-                        ForEach(favoritesvm.facilityData) { facility in
-                            NavigationLink(destination: {
-                                FacilityView(facility: facility)
-                            }, label: {
-                                Text(facility.FacilityName!)
-                            })
-                        }
+                
+                Section("Results") {
+                    ForEach(recreationvm.facilityData) { facility in
+                        NavigationLink(destination: {
+                            FacilityView(facility: facility)
+                        }, label: {
+                            Text(facility.FacilityName)
+                        })
+                    }
+                }
+                
+                Section("Favorites") {
+                    ForEach(favoritesvm.readFacilities, id: \.self) { facility in
+                        NavigationLink(destination: {
+                            FacilityView(facility_id: facility)
+                        }, label: {
+                            Text(facility)
+                        })
                     }
                 }
             }
-            .onAppear {
-                Task {
-                    await recreationvm.fetchData(state: userValue, org: userOrg, activity: userActivity)
-                }
-            }
-            .navigationTitle("Public Lands Facility Finder")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                Button("Favorites") {
-                   showFavorites.toggle()
-                   favoritesvm.updateFavorites()
-                }
+            .task {
+                await recreationvm.fetchData(state: userValue, org: userOrg, activity: userActivity)
+                await favoritesvm.fetchData()
             }
         }
-    }
-    
-}
-
-struct UserInputView_Previews: PreviewProvider {
-    static var previews: some View {
-        UserInputView()
+        .navigationTitle("Public Lands Facility Finder")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
@@ -132,3 +113,4 @@ struct UserOptions {
                       ActivityOptions(activityName: "Mountain Biking", activityID: "10002"),
                       ActivityOptions(activityName: "Paddling", activityID: "105")]
 }
+
