@@ -15,8 +15,13 @@ class FavoritesViewModel: ObservableObject {
     @Published private(set) var facilityData = [FacilityModel]()//: [FacilityModel] = []
     private var favorite = FavoriteViewModel()
     private(set) var readFacilities = [String]()
-     //var readFacilities = [""]
-
+    // var readFacilities = ["235752"]
+ //   var readFacilities = [""]
+    func updateFavorites() {
+        self.fetchData()
+        self.getFacilityInfo()
+    }
+    
     func fetchData()  {
         //Get reference to database
         let db = Firestore.firestore()

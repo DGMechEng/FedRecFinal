@@ -54,10 +54,6 @@ final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate 
         return self.region.center
     }
     
-//    func setFacilityCoord(coord: CLLocationCoordinate2D) {
-//        facilityCoord = coord
-//        self.locationArray[1] = self.facilityCoord
-//    }
     func getFacilityCoord(facilityCoord: CLLocationCoordinate2D) {
         locationArray[1] = facilityCoord
     }

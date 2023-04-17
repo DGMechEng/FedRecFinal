@@ -11,7 +11,8 @@ import UIKit
 struct UserInputView: View {
 
     @ObservedObject var recreationvm = RecreationViewModel()
-    @ObservedObject var favoritesvm = FavoritesViewModel()
+    //@ObservedObject var favoritesvm = FavoritesViewModel()
+    @StateObject var favoritesvm = FavoritesViewModel()
     
     @State private(set) var userValue="CO"
     @State private(set) var userOrg="131"
@@ -21,6 +22,7 @@ struct UserInputView: View {
     private var options = UserOptions()
 
     var body: some View {
+        
         NavigationStack {
             List {
                 Section {
@@ -54,13 +56,7 @@ struct UserInputView: View {
                         }
                     }
                 }
-                
-//                Section {
-//                    Button("Show favorites") {
-//                        showFavorites.toggle()
-//                        favoritesvm.fetchData()
-//                    }
-//                }
+
                 Section {
                     if(!showFavorites) {
                         ForEach(recreationvm.facilityData) { facility in
@@ -92,8 +88,7 @@ struct UserInputView: View {
             .toolbar {
                 Button("Favorites") {
                    showFavorites.toggle()
-                    favoritesvm.fetchData()
-                    favoritesvm.getFacilityInfo()
+                   favoritesvm.updateFavorites()
                 }
             }
         }
