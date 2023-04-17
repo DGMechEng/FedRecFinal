@@ -52,7 +52,7 @@ struct FacilityView: View {
                         Text("Map coordinates not available")
                             .padding(.horizontal)
                     } else {
-                        MapView(facilityCoord: CLLocationCoordinate2D(latitude: facility.FacilityLatitude!, longitude: facility.FacilityLongitude!), facilityName: facility.FacilityName!)
+                        MapView(coord: CLLocationCoordinate2D(latitude: facility.FacilityLatitude!, longitude: facility.FacilityLongitude!), name: facility.FacilityName!)
 //                           // .frame(height: 300)
                       //  MapView()
                     }

@@ -14,9 +14,17 @@ struct MapView : View {
    var facilityCoord: CLLocationCoordinate2D
     var facilityName: String
     
-    @StateObject var mapViewModel = MapViewModel()
+    @StateObject var mapViewModel: MapViewModel// = MapViewModel(coord: facilityCoord, name: facilityName)
+    
+    init(coord: CLLocationCoordinate2D, name: String) {
+        self._mapViewModel = StateObject(wrappedValue:MapViewModel(coord: coord, name: name))
+        facilityCoord = coord
+        facilityName = name
+    }
     
     var body: some View {
+       // mapViewModel = MapViewModel(coord: facilityCoord, name: facilityName)
+        
         return ZStack(alignment: .bottom) {
             Map(coordinateRegion: $mapViewModel.region, annotationItems: mapViewModel.mapLocations, annotationContent: {
                 location in MapAnnotation(coordinate: location.coordinate, anchorPoint: CGPoint(x: 0.5, y: 0.5), content: {

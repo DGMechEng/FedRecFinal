@@ -13,12 +13,21 @@ import SwiftUI
 final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 40, longitude: -100),span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10))
     @Published var locationArray = [CLLocationCoordinate2D(latitude: 0, longitude: 0),CLLocationCoordinate2D(latitude: 0, longitude: 0)]
-    @Published var mapLocations = [MapLocation(name: "Your Location", coordinate: CLLocationCoordinate2D(latitude: 0, longitude: 0)),MapLocation(name: "Facility Location", coordinate: CLLocationCoordinate2D(latitude: 0, longitude: 0))]
+    @Published var mapLocations = [MapLocation]()//[MapLocation(name: "Your Location", coordinate: CLLocationCoordinate2D(latitude: 0, longitude: 0)),MapLocation(name: "Facility Location", coordinate: CLLocationCoordinate2D(latitude: 0, longitude: 0))]
     
     var facilityName = ""
     var facilityCoord = CLLocationCoordinate2D(latitude: 40, longitude: -120)
     
     let locationManager = CLLocationManager()
+    
+    convenience init(coord: CLLocationCoordinate2D, name: String) {
+        self.init()
+        mapLocations.append(MapLocation(name: name, coordinate: coord))
+        self.locationArray[0] = coord //index 0 holds facility, index 1 holds user location
+        self.region = MKCoordinateRegion(center: coord, span: MKCoordinateSpan(latitudeDelta: 5, longitudeDelta: 5))
+        //mapLocations[0] = MapLocation(name: name, coordinate: coord)
+       // self.init()
+    }
     
     override init() {
         super.init()
@@ -42,10 +51,23 @@ final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate 
         
         DispatchQueue.main.async {
             self.region = MKCoordinateRegion(center: latestLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
-            self.locationArray[0] = (self.getLocationCoord())  //user location
-            self.locationArray[1] = self.facilityCoord //facility location
-            self.mapLocations[0] = MapLocation(name: "Your Location", coordinate: self.locationArray[0])
-            self.mapLocations[1] = MapLocation(name: self.facilityName, coordinate: self.locationArray[1])
+    //        self.locationArray[0] = (self.getLocationCoord())  //user location
+      
+            if self.locationArray.count<2 {
+                self.locationArray.append(self.getLocationCoord()) //append user location
+            } else {
+                self.locationArray[1] = self.getLocationCoord()
+            }
+            
+            if self.mapLocations.count < 2 {
+                self.mapLocations.append(MapLocation(name: "Your Location", coordinate: self.locationArray[1])) //append user location
+                } else {
+                    self.mapLocations[1] = MapLocation(name: "Your Location", coordinate: self.locationArray[1])
+                }
+     
+//            self.locationArray[1] = self.facilityCoord //facility location
+//            self.mapLocations[0] = MapLocation(name: "Your Location", coordinate: self.locationArray[0])
+//            self.mapLocations[1] = MapLocation(name: self.facilityName, coordinate: self.locationArray[1])
             self.calcSpan()
         }
     }
