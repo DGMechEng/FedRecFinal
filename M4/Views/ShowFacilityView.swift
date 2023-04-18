@@ -11,9 +11,11 @@ import WebKit
 
 struct ShowFacilityView: View {
     
-    @ObservedObject var icon = favIcon()
+//    @ObservedObject var icon = favIcon()
     let webView = WKWebView()
-    @ObservedObject var favorites = FavoritesViewModel()
+//    @ObservedObject var favorites = FavoritesViewModel()
+    @EnvironmentObject var favoritesvm: FavoritesViewModel
+    
     let facility : FacilityModel
     
     var body: some View {
@@ -23,18 +25,19 @@ struct ShowFacilityView: View {
                         .font(.system(size: 25, design: .rounded))
                         .padding(.horizontal)
                     Button(action: {
-                        if (favorites.readFacilities.contains(facility.FacilityID)) {
-                            favorites.removeFacility(fac: facility.FacilityID)
+                        if (favoritesvm.readFacilities.contains(facility.FacilityID)) {
+                            favoritesvm.removeFacility(fac: facility.FacilityID)
                         } else {
-                            favorites.addFacility(fac: facility.FacilityID)
+                            favoritesvm.addFacility(fac: facility.FacilityID)
                         }
-                   
-                        icon.setIcon(facID: facility.FacilityID, favorites: favorites.readFacilities)
-                
+                        
+//                        icon.setIcon(facID: facility.FacilityID, favorites: favoritesvm.readFacilities)
+                        
                     }) {
                         HStack {
                             Text("Favorite")
-                            Image(systemName: icon.iconString)
+                            FavoriteIconView(facility: facility)
+                               // .environmentObject(favoritesvm)
                         }
                     }
                 }
@@ -56,29 +59,30 @@ struct ShowFacilityView: View {
                 ActivityView(activities: facility.ACTIVITY)
                     .padding(.horizontal)
             }
-        }.task {
-            await favorites.fetchData()
         }
+//        .task {
+//            await favorites.fetchData()
+//        }
     }
 }
 
-class favIcon: ObservableObject {
-    
-    @Published private(set) var iconString = "heart"
-    
-    func setIcon(facID: String, favorites: [String]) {
-        if favorites.contains(facID) {
-            iconString = "heart.fill"
-        } else {
-            iconString = "heart"
-        }
-    }
-    
-    func getIcon(facID: String, favorites: [String]) -> String {
-        if favorites.contains(facID) {
-            return "heart.fill"
-        } else {
-            return "heart"
-        }
-    }
-}
+//class favIcon: ObservableObject {
+//    
+//    @Published private(set) var iconString = "heart"
+//    
+//    func setIcon(facID: String, favorites: [String]) {
+//        if favorites.contains(facID) {
+//            iconString = "heart.fill"
+//        } else {
+//            iconString = "heart"
+//        }
+//    }
+//    
+//    func getIcon(facID: String, favorites: [String]) -> String {
+//        if favorites.contains(facID) {
+//            return "heart.fill"
+//        } else {
+//            return "heart"
+//        }
+//    }
+//}

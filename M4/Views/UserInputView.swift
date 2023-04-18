@@ -11,7 +11,8 @@ import UIKit
 struct UserInputView: View {
     
     @ObservedObject var recreationvm = RecreationViewModel()
-    @ObservedObject var favoritesvm = FavoritesViewModel()
+    //@ObservedObject var favoritesvm = FavoritesViewModel()
+    @StateObject var favoritesvm = FavoritesViewModel()
     
     @State private(set) var userValue="CO"
     @State private(set) var userOrg="131"
@@ -67,6 +68,7 @@ struct UserInputView: View {
                     ForEach(favoritesvm.readFacilities, id: \.self) { facility in
                         NavigationLink(destination: {
                             FacilityView(facility_id: facility)
+                                .environmentObject(favoritesvm)
                         }, label: {
                             Text(facility)
                         })
@@ -78,6 +80,7 @@ struct UserInputView: View {
                 await favoritesvm.fetchData()
             }
         }
+        .environmentObject(favoritesvm)
         .navigationTitle("Public Lands Facility Finder")
         .navigationBarTitleDisplayMode(.inline)
     }

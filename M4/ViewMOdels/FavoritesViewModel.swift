@@ -14,6 +14,12 @@ import FirebaseAuth
 class FavoritesViewModel: ObservableObject {
     @Published private(set) var readFacilities = [String]()
     
+    init() {
+        Task {
+            await fetchData()
+        }
+    }
+    
     @MainActor
     func fetchData() async {
         //Get reference to database

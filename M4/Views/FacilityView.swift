@@ -11,11 +11,13 @@ struct FacilityView: View {
     var facility = FacilityModel(FacilityID: "", FacilityName: "", FacilityDescription: "", FacilityLatitude: 0.0, FacilityLongitude: 0.0, ACTIVITY: [], LINK: [])
     var facility_id: String = "-1"
     @ObservedObject var facilityvm = FacilityViewModel()
-    
+  //  @EnvironmentObject var favoritesvm: FavoritesViewModel
+
     var body: some View {
         ScrollView {
             if facility_id != "-1" {
                 ShowFacilityView(facility: facilityvm.favoriteData)
+  //                  .environmentObject(favoritesvm)
             }
             else {
                 ShowFacilityView(facility: facility)
