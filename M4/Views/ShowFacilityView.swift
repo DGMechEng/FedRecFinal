@@ -24,7 +24,7 @@ struct ShowFacilityView: View {
                         .font(.system(size: 25, design: .rounded))
                         .padding(.horizontal)
                     Button(action: {
-                        if (favoritesvm.readFacilities.contains(facility.FacilityID)) {
+                        if (favoritesvm.readFacilities.contains("\(facility.FacilityID)_\(facility.FacilityName)")) {
                             favoritesvm.removeFacility(fac: facility.FacilityID, name: facility.FacilityName)
                             iconString = "heart"
                         } else {
@@ -36,7 +36,6 @@ struct ShowFacilityView: View {
                         HStack {
                             Text("Favorite")
                             FavoriteIconView(existingString: iconString, facility: facility)
-                               // .environmentObject(favoritesvm)
                         }
                     }
                 }
