@@ -15,7 +15,8 @@ struct ShowFacilityView: View {
     let webView = WKWebView()
     @EnvironmentObject var favoritesvm: FavoritesViewModel
     let facility : FacilityModel
- 
+    @State var iconString: String = "heart"
+    
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 10) {
@@ -25,16 +26,16 @@ struct ShowFacilityView: View {
                     Button(action: {
                         if (favoritesvm.readFacilities.contains(facility.FacilityID)) {
                             favoritesvm.removeFacility(fac: facility.FacilityID, name: facility.FacilityName)
+                            iconString = "heart"
                         } else {
                             favoritesvm.addFacility(fac: facility.FacilityID, name: facility.FacilityName)
+                            iconString = "heart.fill"
                         }
-                        
-//                        icon.setIcon(facID: facility.FacilityID, favorites: favoritesvm.readFacilities)
                         
                     }) {
                         HStack {
                             Text("Favorite")
-                            FavoriteIconView(facility: facility)
+                            FavoriteIconView(existingString: iconString, facility: facility)
                                // .environmentObject(favoritesvm)
                         }
                     }
