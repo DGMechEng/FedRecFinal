@@ -118,7 +118,6 @@
 				B3F2664729E07D7C00BCFE67 /* GoogleService-Info.plist */,
 				ACF5E04529BE958000DD981A /* Preview Content */,
 				B3EB00B529C943BE00D0D00A /* ViewMOdels */,
-				B3A928BD29D89D4200C8776B /* Location */,
 			);
 			path = M4;
 			sourceTree = "<group>";
@@ -143,23 +142,16 @@
 			path = Auth;
 			sourceTree = "<group>";
 		};
-		B3A928BD29D89D4200C8776B /* Location */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Location;
-			sourceTree = "<group>";
-		};
 		B3EB00A229C9431E00D0D00A /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				B3EB00B629C9444D00D0D00A /* UserInputView.swift */,
 				B39E7DE329CA9EEA000B4B74 /* DescriptionHTMLView.swift */,
 				B3EB00A529C9434100D0D00A /* FacilityView.swift */,
+				B37A953229EE3C8B007B05E9 /* ShowFacilityView.swift */,
 				B39E7DE129CA993B000B4B74 /* LinkView.swift */,
 				B3EB00A729C9434C00D0D00A /* MapView.swift */,
 				B39E7DE529CBB0AA000B4B74 /* ActivityView.swift */,
-				B37A953229EE3C8B007B05E9 /* ShowFacilityView.swift */,
 				B37A953429EE4C30007B05E9 /* FavoriteIconView.swift */,
 			);
 			path = Views;
@@ -173,7 +165,6 @@
 				B3EB00AC29C9437300D0D00A /* FacilityModel.swift */,
 				B39E7DDF29CA9227000B4B74 /* UserInputModel.swift */,
 				B37374D329E4F79B004CF1B7 /* FacilityListModel.swift */,
-				B3C465FF29EE055700723E58 /* FacilityViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -185,6 +176,7 @@
 				B37374D129E1E1E6004CF1B7 /* FavoritesViewModel.swift */,
 				B3386E5029D88A0900F841E8 /* AuthenticationViewModel.swift */,
 				B3CD876729DCEFBE004A9B63 /* MapViewModel.swift */,
+				B3C465FF29EE055700723E58 /* FacilityViewModel.swift */,
 			);
 			path = ViewMOdels;
 			sourceTree = "<group>";

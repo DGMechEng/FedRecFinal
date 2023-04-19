@@ -39,16 +39,16 @@ class FavoritesViewModel: ObservableObject {
             }
     }
     
-    func addFacility(fac: String) {
+    func addFacility(fac: String, name: String) {
         let db = Firestore.firestore()
         guard let userID = Auth.auth().currentUser?.uid else {return}
             
 //        var readFacilitiesSet = Set(readFacilities)
 //        readFacilitiesSet.insert(fac)
 //        readFacilities=Array(readFacilitiesSet)
-        
+        let stringToStore = "\(fac)_\(name)"
         db.collection("Favorites").document(userID).updateData([
-            "userFavorites": FieldValue.arrayUnion([fac])])
+            "userFavorites": FieldValue.arrayUnion([stringToStore])])
         { err in
             if let err = err {
                 print("Error writing document: \(err)")
@@ -58,12 +58,13 @@ class FavoritesViewModel: ObservableObject {
         }
     }
     
-    func removeFacility(fac: String) {
+    func removeFacility(fac: String, name: String) {
         let db = Firestore.firestore()
+        let stringToDel = "\(fac)_\(name)"
         guard let userID = Auth.auth().currentUser?.uid else {return}
             
         var readFacilitiesSet = Set(readFacilities)
-        if let removed = readFacilitiesSet.remove(fac) {
+        if let removed = readFacilitiesSet.remove(stringToDel) {
             print("\(removed) has been removed from favorites")
         }
         readFacilities=Array(readFacilitiesSet)
@@ -77,6 +78,4 @@ class FavoritesViewModel: ObservableObject {
             }
         }
     }
-    
-
 }

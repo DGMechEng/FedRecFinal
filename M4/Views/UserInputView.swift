@@ -70,7 +70,10 @@ struct UserInputView: View {
                             FacilityView(facility_id: facility)
                                 .environmentObject(favoritesvm)
                         }, label: {
-                            Text(facility)
+                            //Text(facility)
+                            Text(facility.components(separatedBy: "_")[1])
+//                            let fac = facility_id.components(separatedBy: "_")
+//                            await facilityvm.fetchData(facID: fac[0])
                         })
                     }
                 }

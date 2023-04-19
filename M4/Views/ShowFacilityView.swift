@@ -13,11 +13,9 @@ struct ShowFacilityView: View {
     
 //    @ObservedObject var icon = favIcon()
     let webView = WKWebView()
-//    @ObservedObject var favorites = FavoritesViewModel()
     @EnvironmentObject var favoritesvm: FavoritesViewModel
-    
     let facility : FacilityModel
-    
+ 
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 10) {
@@ -26,9 +24,9 @@ struct ShowFacilityView: View {
                         .padding(.horizontal)
                     Button(action: {
                         if (favoritesvm.readFacilities.contains(facility.FacilityID)) {
-                            favoritesvm.removeFacility(fac: facility.FacilityID)
+                            favoritesvm.removeFacility(fac: facility.FacilityID, name: facility.FacilityName)
                         } else {
-                            favoritesvm.addFacility(fac: facility.FacilityID)
+                            favoritesvm.addFacility(fac: facility.FacilityID, name: facility.FacilityName)
                         }
                         
 //                        icon.setIcon(facID: facility.FacilityID, favorites: favoritesvm.readFacilities)
@@ -60,29 +58,6 @@ struct ShowFacilityView: View {
                     .padding(.horizontal)
             }
         }
-//        .task {
-//            await favorites.fetchData()
-//        }
     }
 }
 
-//class favIcon: ObservableObject {
-//    
-//    @Published private(set) var iconString = "heart"
-//    
-//    func setIcon(facID: String, favorites: [String]) {
-//        if favorites.contains(facID) {
-//            iconString = "heart.fill"
-//        } else {
-//            iconString = "heart"
-//        }
-//    }
-//    
-//    func getIcon(facID: String, favorites: [String]) -> String {
-//        if favorites.contains(facID) {
-//            return "heart.fill"
-//        } else {
-//            return "heart"
-//        }
-//    }
-//}

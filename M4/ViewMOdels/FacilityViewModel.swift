@@ -10,8 +10,9 @@ import Foundation
 class FacilityViewModel: ObservableObject, Identifiable {
     
     @Published var favoriteData = FacilityModel(FacilityID: "", FacilityName: "", FacilityDescription: "", FacilityLatitude: 0.0, FacilityLongitude: 0.0, ACTIVITY: [], LINK: [])
-    
+    @Published public var status: Bool = false
     private var url: String = ""
+    
     
     @MainActor
     func fetchData(facID: String) async {
@@ -24,6 +25,7 @@ class FacilityViewModel: ObservableObject, Identifiable {
                     let results = try JSONDecoder().decode(FacilityModel.self, from: data)
                     self.favoriteData = results.self
                     print("er : \(self.favoriteData)")
+                    self.status = true
                 } catch {
                     print(error)
                 }

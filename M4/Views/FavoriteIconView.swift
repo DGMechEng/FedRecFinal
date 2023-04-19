@@ -18,37 +18,15 @@ struct FavoriteIconView: View {
     
     var body: some View {
         HStack {
-            if favoritesvm.readFacilities.contains(facility.FacilityID) {
+            if favoritesvm.readFacilities.contains("\(facility.FacilityID)_\(facility.FacilityName)") {
                 Image(systemName: "heart.fill")
             } else {
                 Image(systemName: "heart")
             }
-            
-            //this doesn't work because the icon is displayed before the setIcon function runs
-//                .onAppear {
-//                    icon.setIcon(facID: facility.FacilityID, favorites: favoritesvm.readFacilities)
-//                }
-        }.task {
+        }
+        .task {
             await favoritesvm.fetchData()
         }
     }
 }
 
-//struct FavoriteIconView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        FavoriteIconView()
-//    }
-//}
-
-//class favIcon: ObservableObject {
-//
-//    @Published private(set) var iconString = "heart"
-//
-//    func setIcon(facID: String, favorites: [String]) {
-//        if favorites.contains(facID) {
-//            iconString = "heart.fill"
-//        } else {
-//            iconString = "heart"
-//        }
-//    }
-//}

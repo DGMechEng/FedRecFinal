@@ -15,16 +15,17 @@ struct FacilityView: View {
 
     var body: some View {
         ScrollView {
-            if facility_id != "-1" {
+            if facility_id != "-1" {  //showing a favorite
                 ShowFacilityView(facility: facilityvm.favoriteData)
-  //                  .environmentObject(favoritesvm)
-            }
+           }
             else {
                 ShowFacilityView(facility: facility)
             }
         }
         .task {
-            await facilityvm.fetchData(facID: facility_id)
+            let fac = facility_id.components(separatedBy: "_")
+            await facilityvm.fetchData(facID: fac[0])
         }
     }
 }
+
