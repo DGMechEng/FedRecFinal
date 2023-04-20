@@ -8,16 +8,14 @@
 import Foundation
 
 struct FacilityResults: Codable {
-    
-  //  let TOTAL_COUNT: String
     let RECDATA: [FacilityModel]
 }
 
 struct FacilityModel: Codable, Identifiable {
-    var id: UUID {
-        return UUID()
+    var id: String {
+        return FacilityID //computed property since API response doesn't have an item called "id"
     }
-  //  let id = UUID()
+
     let FacilityID: String
     let FacilityName: String
     let FacilityDescription: String

@@ -31,7 +31,7 @@ struct SignupView: View {
 
   var body: some View {
     VStack {
-      Image("SignUp")
+      Image("Signup")
         .resizable()
         .aspectRatio(contentMode: .fit)
         .frame(minHeight: 300, maxHeight: 400)

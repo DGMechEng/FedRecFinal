@@ -10,7 +10,6 @@
 		ACF5E04029BE957F00DD981A /* FedRecreationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF5E03F29BE957F00DD981A /* FedRecreationApp.swift */; };
 		ACF5E04429BE958000DD981A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACF5E04329BE958000DD981A /* Assets.xcassets */; };
 		ACF5E04729BE958000DD981A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACF5E04629BE958000DD981A /* Preview Assets.xcassets */; };
-		B3386E3D29D887B600F841E8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B3386E3C29D887B600F841E8 /* GoogleService-Info.plist */; };
 		B3386E4029D8887100F841E8 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = B3386E3F29D8887100F841E8 /* FirebaseAnalytics */; };
 		B3386E4229D8887100F841E8 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B3386E4129D8887100F841E8 /* FirebaseAnalyticsSwift */; };
 		B3386E4429D8887100F841E8 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B3386E4329D8887100F841E8 /* FirebaseAuth */; };
@@ -20,11 +19,16 @@
 		B3386E4D29D8894E00F841E8 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3386E4C29D8894E00F841E8 /* SignupView.swift */; };
 		B3386E4F29D8896900F841E8 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3386E4E29D8896900F841E8 /* LoginView.swift */; };
 		B3386E5129D88A0900F841E8 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3386E5029D88A0900F841E8 /* AuthenticationViewModel.swift */; };
+		B37374D229E1E1E6004CF1B7 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37374D129E1E1E6004CF1B7 /* FavoritesViewModel.swift */; };
+		B37374D429E4F79C004CF1B7 /* FacilityListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37374D329E4F79B004CF1B7 /* FacilityListModel.swift */; };
+		B37A953329EE3C8B007B05E9 /* ShowFacilityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37A953229EE3C8B007B05E9 /* ShowFacilityView.swift */; };
+		B37A953529EE4C30007B05E9 /* FavoriteIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37A953429EE4C30007B05E9 /* FavoriteIconView.swift */; };
 		B39E7DE029CA9227000B4B74 /* UserInputModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E7DDF29CA9227000B4B74 /* UserInputModel.swift */; };
 		B39E7DE229CA993B000B4B74 /* LinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E7DE129CA993B000B4B74 /* LinkView.swift */; };
 		B39E7DE429CA9EEA000B4B74 /* DescriptionHTMLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E7DE329CA9EEA000B4B74 /* DescriptionHTMLView.swift */; };
 		B39E7DE629CBB0AA000B4B74 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E7DE529CBB0AA000B4B74 /* ActivityView.swift */; };
-		B3A928BC29D89D3A00C8776B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A928BB29D89D3A00C8776B /* LocationManager.swift */; };
+		B3C4660029EE055700723E58 /* FacilityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C465FF29EE055700723E58 /* FacilityViewModel.swift */; };
+		B3CD876829DCEFBE004A9B63 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CD876729DCEFBE004A9B63 /* MapViewModel.swift */; };
 		B3EB00A629C9434100D0D00A /* FacilityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EB00A529C9434100D0D00A /* FacilityView.swift */; };
 		B3EB00A829C9434C00D0D00A /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EB00A729C9434C00D0D00A /* MapView.swift */; };
 		B3EB00AA29C9435F00D0D00A /* LinkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EB00A929C9435F00D0D00A /* LinkModel.swift */; };
@@ -32,6 +36,9 @@
 		B3EB00AF29C9437C00D0D00A /* ActivityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EB00AE29C9437C00D0D00A /* ActivityModel.swift */; };
 		B3EB00B429C943B400D0D00A /* RecreationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EB00B329C943B400D0D00A /* RecreationViewModel.swift */; };
 		B3EB00B729C9444D00D0D00A /* UserInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EB00B629C9444D00D0D00A /* UserInputView.swift */; };
+		B3F2664829E07D7C00BCFE67 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B3F2664729E07D7C00BCFE67 /* GoogleService-Info.plist */; };
+		B3F2664B29E08FC300BCFE67 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B3F2664A29E08FC300BCFE67 /* FirebaseFirestore */; };
+		B3F2664D29E08FCA00BCFE67 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B3F2664C29E08FCA00BCFE67 /* FirebaseFirestoreSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,18 +46,22 @@
 		ACF5E03F29BE957F00DD981A /* FedRecreationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FedRecreationApp.swift; sourceTree = "<group>"; };
 		ACF5E04329BE958000DD981A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACF5E04629BE958000DD981A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		B3386E3C29D887B600F841E8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B3386E4629D888F100F841E8 /* AuthenticatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedView.swift; sourceTree = "<group>"; };
 		B3386E4829D8891100F841E8 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
 		B3386E4A29D8893000F841E8 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		B3386E4C29D8894E00F841E8 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
 		B3386E4E29D8896900F841E8 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		B3386E5029D88A0900F841E8 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		B37374D129E1E1E6004CF1B7 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
+		B37374D329E4F79B004CF1B7 /* FacilityListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityListModel.swift; sourceTree = "<group>"; };
+		B37A953229EE3C8B007B05E9 /* ShowFacilityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowFacilityView.swift; sourceTree = "<group>"; };
+		B37A953429EE4C30007B05E9 /* FavoriteIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteIconView.swift; sourceTree = "<group>"; };
 		B39E7DDF29CA9227000B4B74 /* UserInputModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInputModel.swift; sourceTree = "<group>"; };
 		B39E7DE129CA993B000B4B74 /* LinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkView.swift; sourceTree = "<group>"; };
 		B39E7DE329CA9EEA000B4B74 /* DescriptionHTMLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionHTMLView.swift; sourceTree = "<group>"; };
 		B39E7DE529CBB0AA000B4B74 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
-		B3A928BB29D89D3A00C8776B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		B3C465FF29EE055700723E58 /* FacilityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityViewModel.swift; sourceTree = "<group>"; };
+		B3CD876729DCEFBE004A9B63 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		B3EB00A529C9434100D0D00A /* FacilityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityView.swift; sourceTree = "<group>"; };
 		B3EB00A729C9434C00D0D00A /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		B3EB00A929C9435F00D0D00A /* LinkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkModel.swift; sourceTree = "<group>"; };
@@ -58,6 +69,8 @@
 		B3EB00AE29C9437C00D0D00A /* ActivityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityModel.swift; sourceTree = "<group>"; };
 		B3EB00B329C943B400D0D00A /* RecreationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecreationViewModel.swift; sourceTree = "<group>"; };
 		B3EB00B629C9444D00D0D00A /* UserInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInputView.swift; sourceTree = "<group>"; };
+		B3F2664629E079C600BCFE67 /* FedRecApp-M4-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "FedRecApp-M4-Info.plist"; sourceTree = "<group>"; };
+		B3F2664729E07D7C00BCFE67 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +78,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3F2664D29E08FCA00BCFE67 /* FirebaseFirestoreSwift in Frameworks */,
 				B3386E4229D8887100F841E8 /* FirebaseAnalyticsSwift in Frameworks */,
+				B3F2664B29E08FC300BCFE67 /* FirebaseFirestore in Frameworks */,
 				B3386E4429D8887100F841E8 /* FirebaseAuth in Frameworks */,
 				B3386E4029D8887100F841E8 /* FirebaseAnalytics in Frameworks */,
 			);
@@ -77,8 +92,11 @@
 		ACF5E03329BE957F00DD981A = {
 			isa = PBXGroup;
 			children = (
+				B3F2664629E079C600BCFE67 /* FedRecApp-M4-Info.plist */,
 				ACF5E03E29BE957F00DD981A /* M4 */,
+				ACF5E03F29BE957F00DD981A /* FedRecreationApp.swift */,
 				ACF5E03D29BE957F00DD981A /* Products */,
+				B3F2664929E08FC300BCFE67 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,10 +115,9 @@
 				B3EB00A229C9431E00D0D00A /* Views */,
 				B3EB00AB29C9436400D0D00A /* Models */,
 				ACF5E04329BE958000DD981A /* Assets.xcassets */,
-				B3386E3C29D887B600F841E8 /* GoogleService-Info.plist */,
+				B3F2664729E07D7C00BCFE67 /* GoogleService-Info.plist */,
 				ACF5E04529BE958000DD981A /* Preview Content */,
 				B3EB00B529C943BE00D0D00A /* ViewMOdels */,
-				B3A928BD29D89D4200C8776B /* Location */,
 			);
 			path = M4;
 			sourceTree = "<group>";
@@ -125,24 +142,17 @@
 			path = Auth;
 			sourceTree = "<group>";
 		};
-		B3A928BD29D89D4200C8776B /* Location */ = {
-			isa = PBXGroup;
-			children = (
-				B3A928BB29D89D3A00C8776B /* LocationManager.swift */,
-			);
-			path = Location;
-			sourceTree = "<group>";
-		};
 		B3EB00A229C9431E00D0D00A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				ACF5E03F29BE957F00DD981A /* FedRecreationApp.swift */,
 				B3EB00B629C9444D00D0D00A /* UserInputView.swift */,
-				B3EB00A529C9434100D0D00A /* FacilityView.swift */,
 				B39E7DE329CA9EEA000B4B74 /* DescriptionHTMLView.swift */,
+				B3EB00A529C9434100D0D00A /* FacilityView.swift */,
+				B37A953229EE3C8B007B05E9 /* ShowFacilityView.swift */,
 				B39E7DE129CA993B000B4B74 /* LinkView.swift */,
 				B3EB00A729C9434C00D0D00A /* MapView.swift */,
 				B39E7DE529CBB0AA000B4B74 /* ActivityView.swift */,
+				B37A953429EE4C30007B05E9 /* FavoriteIconView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -154,6 +164,7 @@
 				B3EB00AE29C9437C00D0D00A /* ActivityModel.swift */,
 				B3EB00AC29C9437300D0D00A /* FacilityModel.swift */,
 				B39E7DDF29CA9227000B4B74 /* UserInputModel.swift */,
+				B37374D329E4F79B004CF1B7 /* FacilityListModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -162,9 +173,19 @@
 			isa = PBXGroup;
 			children = (
 				B3EB00B329C943B400D0D00A /* RecreationViewModel.swift */,
+				B37374D129E1E1E6004CF1B7 /* FavoritesViewModel.swift */,
 				B3386E5029D88A0900F841E8 /* AuthenticationViewModel.swift */,
+				B3CD876729DCEFBE004A9B63 /* MapViewModel.swift */,
+				B3C465FF29EE055700723E58 /* FacilityViewModel.swift */,
 			);
 			path = ViewMOdels;
+			sourceTree = "<group>";
+		};
+		B3F2664929E08FC300BCFE67 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,6 +208,8 @@
 				B3386E3F29D8887100F841E8 /* FirebaseAnalytics */,
 				B3386E4129D8887100F841E8 /* FirebaseAnalyticsSwift */,
 				B3386E4329D8887100F841E8 /* FirebaseAuth */,
+				B3F2664A29E08FC300BCFE67 /* FirebaseFirestore */,
+				B3F2664C29E08FCA00BCFE67 /* FirebaseFirestoreSwift */,
 			);
 			productName = Assignment3;
 			productReference = ACF5E03C29BE957F00DD981A /* FedRecApp_M4.app */;
@@ -235,7 +258,7 @@
 			files = (
 				ACF5E04729BE958000DD981A /* Preview Assets.xcassets in Resources */,
 				ACF5E04429BE958000DD981A /* Assets.xcassets in Resources */,
-				B3386E3D29D887B600F841E8 /* GoogleService-Info.plist in Resources */,
+				B3F2664829E07D7C00BCFE67 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,15 +278,20 @@
 				B3386E5129D88A0900F841E8 /* AuthenticationViewModel.swift in Sources */,
 				B39E7DE429CA9EEA000B4B74 /* DescriptionHTMLView.swift in Sources */,
 				B3EB00AF29C9437C00D0D00A /* ActivityModel.swift in Sources */,
+				B37A953329EE3C8B007B05E9 /* ShowFacilityView.swift in Sources */,
 				B39E7DE029CA9227000B4B74 /* UserInputModel.swift in Sources */,
+				B3CD876829DCEFBE004A9B63 /* MapViewModel.swift in Sources */,
 				B3EB00AA29C9435F00D0D00A /* LinkModel.swift in Sources */,
+				B37A953529EE4C30007B05E9 /* FavoriteIconView.swift in Sources */,
 				B3386E4F29D8896900F841E8 /* LoginView.swift in Sources */,
+				B3C4660029EE055700723E58 /* FacilityViewModel.swift in Sources */,
+				B37374D429E4F79C004CF1B7 /* FacilityListModel.swift in Sources */,
 				B3386E4B29D8893000F841E8 /* UserProfileView.swift in Sources */,
+				B37374D229E1E1E6004CF1B7 /* FavoritesViewModel.swift in Sources */,
 				B3386E4929D8891200F841E8 /* AuthenticationView.swift in Sources */,
 				B3386E4D29D8894E00F841E8 /* SignupView.swift in Sources */,
 				ACF5E04029BE957F00DD981A /* FedRecreationApp.swift in Sources */,
 				B3EB00B729C9444D00D0D00A /* UserInputView.swift in Sources */,
-				B3A928BC29D89D3A00C8776B /* LocationManager.swift in Sources */,
 				B39E7DE229CA993B000B4B74 /* LinkView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -393,8 +421,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"M4/Preview Content\"";
+				DEVELOPMENT_TEAM = 56GUM85675;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "FedRecApp-M4-Info.plist";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Need location to see user's location";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -406,7 +436,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = edu.auburn.onlinecsse.Assignment3;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.auburn.onlinecsse.FedRecApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -422,8 +452,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"M4/Preview Content\"";
+				DEVELOPMENT_TEAM = 56GUM85675;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "FedRecApp-M4-Info.plist";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Need location to see user's location";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -435,7 +467,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = edu.auburn.onlinecsse.Assignment3;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.auburn.onlinecsse.FedRecApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -492,6 +524,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B3386E3E29D8887100F841E8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
+		};
+		B3F2664A29E08FC300BCFE67 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B3386E3E29D8887100F841E8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		B3F2664C29E08FCA00BCFE67 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B3386E3E29D8887100F841E8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

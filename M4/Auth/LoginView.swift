@@ -34,7 +34,7 @@ struct LoginView: View {
         .resizable()
         .aspectRatio(contentMode: .fit)
         .frame(minHeight: 300, maxHeight: 400)
-      Text("Login")
+      Text("Loggin'")
         .font(.largeTitle)
         .fontWeight(.bold)
         .frame(maxWidth: .infinity, alignment: .leading)
