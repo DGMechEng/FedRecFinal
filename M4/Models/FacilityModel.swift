@@ -8,18 +8,8 @@
 import Foundation
 
 struct FacilityResults: Codable {
-    
-  //  let TOTAL_COUNT: String
     let RECDATA: [FacilityModel]
 }
-
-//struct FacilityIdentifiable: Codable, Identifiable {
-//    var id: UUID {
-//        return UUID()
-//    }
-//    let facility: FacilityModel
-//}
-//Now how the f do I incorporate this?
 
 struct FacilityModel: Codable, Identifiable {
     var id: String {

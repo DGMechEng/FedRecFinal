@@ -21,70 +21,76 @@ struct UserInputView: View {
     
     var body: some View {
         NavigationStack {
-            List {
-                Section("Filter") {
-                    Picker("Select a state: ", selection: $userValue) {
-                        ForEach(options.States, id: \.self) {
-                            Text($0)
+            ZStack {
+                LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 1, green: 0.5367012199, blue: 0.07851539334, alpha: 1)),Color(#colorLiteral(red: 0.7807937006, green: 0.07367184641, blue: 0.1394205313, alpha: 1))]), startPoint: .leading, endPoint: .topTrailing)
+                
+                List {
+                    Section("Filter") {
+                        Picker("Select a state: ", selection: $userValue) {
+                            ForEach(options.States, id: \.self) {
+                                Text($0)
+                            }
+                        }.onChange(of: userValue) { _ in
+                            Task {
+                                await recreationvm.fetchData(state: userValue, org: userOrg, activity: userActivity)
+                            }
                         }
-                    }.onChange(of: userValue) { _ in
-                        Task {
-                            await recreationvm.fetchData(state: userValue, org: userOrg, activity: userActivity)
+                        
+                        Picker("Select an organization: ", selection: $userOrg) {
+                            ForEach(options.Orgs, id: \.orgID) {
+                                Text($0.orgName)
+                            }
+                        }.onChange(of: userOrg) { _ in
+                            Task {
+                                await recreationvm.fetchData(state: userValue, org: userOrg, activity: userActivity)
+                            }
+                        }
+                        
+                        Picker("Select an activity: ", selection: $userActivity) {
+                            ForEach(options.Activities, id: \.activityID) {
+                                Text($0.activityName)
+                            }
+                        }.onChange(of: userActivity) { _ in
+                            Task{
+                                await recreationvm.fetchData(state: userValue, org: userOrg, activity: userActivity)
+                            }
                         }
                     }
                     
-                    Picker("Select an organization: ", selection: $userOrg) {
-                        ForEach(options.Orgs, id: \.orgID) {
-                            Text($0.orgName)
-                        }
-                    }.onChange(of: userOrg) { _ in
-                        Task {
-                            await recreationvm.fetchData(state: userValue, org: userOrg, activity: userActivity)
+                    Section("Results") {
+                        ForEach(recreationvm.facilityData) { facility in
+                            NavigationLink(destination: {
+                                FacilityView(facility: facility)
+                            }, label: {
+                                Text(facility.FacilityName)
+                            })
                         }
                     }
                     
-                    Picker("Select an activity: ", selection: $userActivity) {
-                        ForEach(options.Activities, id: \.activityID) {
-                            Text($0.activityName)
+                    Section("Favorites") {
+                        ForEach(favoritesvm.readFacilities, id: \.self) { facility in
+                            NavigationLink(destination: {
+                                FacilityView(facility_id: facility)
+                                    .environmentObject(favoritesvm)
+                            }, label: {
+                                //Text(facility)
+                                Text(facility.components(separatedBy: "_")[1])
+                                //                            let fac = facility_id.components(separatedBy: "_")
+                                //                            await facilityvm.fetchData(facID: fac[0])
+                            })
                         }
-                    }.onChange(of: userActivity) { _ in
-                        Task{
-                            await recreationvm.fetchData(state: userValue, org: userOrg, activity: userActivity)
-                        }
                     }
                 }
-                
-                Section("Results") {
-                    ForEach(recreationvm.facilityData) { facility in
-                        NavigationLink(destination: {
-                            FacilityView(facility: facility)
-                        }, label: {
-                            Text(facility.FacilityName)
-                        })
-                    }
-                }
-                
-                Section("Favorites") {
-                    ForEach(favoritesvm.readFacilities, id: \.self) { facility in
-                        NavigationLink(destination: {
-                            FacilityView(facility_id: facility)
-                                .environmentObject(favoritesvm)
-                        }, label: {
-                            //Text(facility)
-                            Text(facility.components(separatedBy: "_")[1])
-//                            let fac = facility_id.components(separatedBy: "_")
-//                            await facilityvm.fetchData(facID: fac[0])
-                        })
-                    }
-                }
-            }
+            } //List end
             .task {
                 await recreationvm.fetchData(state: userValue, org: userOrg, activity: userActivity)
                 await favoritesvm.fetchData()
             }
         }
+        .scrollContentBackground(.hidden)
         .environmentObject(favoritesvm)
         .navigationTitle("Public Lands Facility Finder")
+        .font(.title3)
         .navigationBarTitleDisplayMode(.inline)
     }
 }

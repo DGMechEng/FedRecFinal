@@ -27,7 +27,7 @@ struct ShowFacilityView: View {
                         if (favoritesvm.readFacilities.contains("\(facility.FacilityID)_\(facility.FacilityName)")) {
                             favoritesvm.removeFacility(fac: facility.FacilityID, name: facility.FacilityName)
                             iconString = "heart"
-                        } else {
+                        } else if facility.FacilityID != "" {
                             favoritesvm.addFacility(fac: facility.FacilityID, name: facility.FacilityName)
                             iconString = "heart.fill"
                         }

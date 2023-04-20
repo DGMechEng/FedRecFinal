@@ -23,8 +23,8 @@ struct FacilityView: View {
             }
         }
         .task {
-            let fac = facility_id.components(separatedBy: "_")
-            await facilityvm.fetchData(facID: fac[0])
+           // let fac = facility_id.components(separatedBy: "_")
+            await facilityvm.fetchData(facID: facility_id.components(separatedBy: "_")[0])
         }
     }
 }

@@ -43,12 +43,15 @@ class FavoritesViewModel: ObservableObject {
         let db = Firestore.firestore()
         guard let userID = Auth.auth().currentUser?.uid else {return}
             
-//        var readFacilitiesSet = Set(readFacilities)
-//        readFacilitiesSet.insert(fac)
-//        readFacilities=Array(readFacilitiesSet)
+        var readFacilitiesSet = Set(readFacilities)
+        readFacilitiesSet.insert("\(fac)_\(name)")
+        readFacilities=Array(readFacilitiesSet)
+//        let stringToStore = "\(fac)_\(name)"
+//        db.collection("Favorites").document(userID).updateData([
+//            "userFavorites": FieldValue.arrayUnion([stringToStore])])
         let stringToStore = "\(fac)_\(name)"
-        db.collection("Favorites").document(userID).updateData([
-            "userFavorites": FieldValue.arrayUnion([stringToStore])])
+                db.collection("Favorites").document(userID).updateData([
+                "userFavorites": readFacilities])
         { err in
             if let err = err {
                 print("Error writing document: \(err)")
